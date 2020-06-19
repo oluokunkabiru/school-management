@@ -1,0 +1,14 @@
+.indexwelcome{
+    background-image: linear-gradient(to right, rgba(39, 41, 41, 0.85), rgba(44, 45, 46, 0.1)),url(../image/student1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.carousel-item{
+    background-image: linear-gradient(rgba(244, 247, 246, 0.6), rgba(126, 128, 125, 0.6));
+    
+}
+.error, .errorsignup, .errorlogin,.errorCreate,.erroradmin{
+    color: red;
+    font-size: 18px;
+    display: block;
+}
