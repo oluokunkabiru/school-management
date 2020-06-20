@@ -14,49 +14,22 @@
     include('header.php')
 ?>
 <div class="content-wrapper">
-    <!-- index image -->
-    <div class="" id="slide">
-      
-    
-        <h2 class="text-light pt-5 pb-5 text-center">OLUOKUN academy of Coding</h2>
-        <div class="row">
-            <div class="col-md-6 offset-2">
-                <div id="demo" class="carousel slide text-light text-center" data-ride="carousel">
-                    <!-- The slideshow -->
-                    <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <h2>We are developing student new Technology</h2>
-                    </div>
-                    <div class="carousel-item">
-                        <h2>We are training student with Technology</h2>
-                    </div>
-                    <div class="carousel-item">
-                        <h2>Education is the key to mordern World</h2>
-                    </div>
-                 </div>
-         </div>
-            </div>
-            <div class="col-md-4">
-
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-2">
-
-            </div>
-            <div class="col-md-8 pt-5 pb-5">
-                   <h1  class="text-light pt-5 pb-5">Better Education for A Better World</h1>
-            </div>
-
-            <div class="col-md-2">
-
-            </div>
-          
-        </div>
-      
-    </div>
+   
     <!-- /inde imge -->
+    <div class="container-fluid">
+      <div id="slide">
+        <h2 class="text-dark text-center font-weight-bold pt-5">OLUOKUN KABIR ACADEMY OF CODING</h2>
+        <div class="row">
+          <div class="col-m3">
+
+          </div>
+          <div class="col-md-6">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
     <div class="row">
       <div class="col-md-4">
         <!-- Widget: user widget style 2 -->
@@ -121,11 +94,6 @@
       </div>
       <!-- /.col -->
     </div>
-    <h1>Background Slideshow With Image Lazy Load Demo</h1>
-    
-    
-  <img src="" alt="">
-
 <!-- login -->
 <section>
     <div class="modal fade" id="studentlogin">
@@ -253,8 +221,8 @@
 </section>
 <!-- /admin -->
 
-<img src="image/doctor.png" alt="">
-<img src="image/staff.jpg" alt="">
+<!-- <img src="image/doctor.png" alt="">
+<img src="image/staff.jpg" alt=""> -->
 
 </div>
 </div>
@@ -325,13 +293,14 @@ $('#adminlogin').click(function(event){
       }
   });
   
-  })
-  $()
+  });
+  $(document).ready(slider);
   function slider(){
     var image = ["image/doctor.png","image/staff.jpg" ];
     var ok = document.getElementById('slide');
-    ok.style.backgroundImage=image[0];
-    ok.innerHTML;
+    ok.style.backgroundImage = "linear-gradient(rgba(85, 233, 238, 0.4), rgba(30, 60, 90, 0.267)), url('"+image[0]+"')";
+    ok.style.backgroundSize = "100%";
+    
     
   }
   </script>
