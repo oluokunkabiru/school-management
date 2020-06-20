@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
 <link rel="stylesheet" href="plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/jquery.slide.css">
 
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
   

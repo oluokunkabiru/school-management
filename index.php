@@ -17,16 +17,66 @@
    
     <!-- /inde imge -->
     <div class="container-fluid">
-      <div id="slide">
-        <h2 class="text-dark text-center font-weight-bold pt-5">OLUOKUN KABIR ACADEMY OF CODING</h2>
-        <div class="row">
-          <div class="col-m3">
+      <div id="slide" class="mt-5 mb-5 pt-5 pb-5">
+        <h2 class="text-center font-weight-bold mt-5 mb-5 text-light">OLUOKUN KABIR ACADEMY OF CODING</h2>
+        <div class="row mt-5 mb-5">
+          <div class="col-md-3">
 
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 text-light text-center">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+
+             
             
+              <!-- The slideshow -->
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <h4>Building student with technology </h4>
+                </div>
+                <div class="carousel-item">
+                  <h4>Introduce to student to latest technology</h4>
+                </div>
+                <div class="carousel-item">
+                  <h4>Student success in IT is very important</h4>
+                </div>
+              </div>
+            
+              
+            
+            </div>
+          </div>
+          <div class="col-md-3">
+
           </div>
         </div>
+        
+        <div class="row mt-5 mb-5">
+          
+          <div class="col-md-4 col-sm-3">
+          </div>
+          <div class="col-md-4">
+             <h3 class="text-center text-light bg-info mt-5 font-weight-bold rounded-circle p-3">About Us</h3>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+        <div class="row mt-5 mb-5">
+          <div class="col-md-3 text-center text-light font-weight-bold">
+            <h3 class="btn btn-primary btn-block btn-lg">Admission Procedure</h3>
+          </div>
+          <div class="col-md-3 text-center text-light font-weight-bold">
+            <h3 class="btn btn-success btn-block btn-lg">Our Staff</h3>
+          </div>
+          <div class="col-md-2 text-center text-light font-weight-bold">
+            <h3 class="btn btn-warning btn-block text-ligh btn-lgt">Contact Us</h3>
+          </div>
+          <div class="col-md-2 text-center text-light font-weight-bold">
+            <h3 class="btn btn-secondary btn-block btn-lg">About Us</h3>
+          </div>
+          <div class="col-md-2 text-center text-light font-weight-bold">
+            <h3 class="btn btn-dark btn-block btn-lg">Our Services</h3>
+          </div>
+        </div>
+
       </div>
     </div>
     <div class="container-fluid">
@@ -221,9 +271,11 @@
 </section>
 <!-- /admin -->
 
-<!-- <img src="image/doctor.png" alt="">
-<img src="image/staff.jpg" alt=""> -->
+<!-- school news  -->
+<section>
 
+</section>
+<!-- /school news -->
 </div>
 </div>
 
@@ -274,6 +326,7 @@ $('#stafflogin').click(function(event){
   });
   
   })
+  
 
 
 //   admin login
@@ -294,12 +347,16 @@ $('#adminlogin').click(function(event){
   });
   
   });
-  $(document).ready(slider);
+  $(document).ready(setInterval(slider, 2000));
   function slider(){
-    var image = ["image/doctor.png","image/staff.jpg" ];
+    var imag = ["image/12421.jpeg","image/staff.jpg", "image/12931.jpeg", "image//children-1822471.jpg",
+    "image/children-593313_640.jpg","image/clement-h-95YRwf6CNw8-unsplash.jpg", "image/coding-1853305_1920.jpg",
+    "image/cyber-glasses-1938449_1920.jpg", "image/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg", "image/introduction-3195427_1920.jpg","image/student-4311768_1920.jpg"   ];
     var ok = document.getElementById('slide');
+    var image = imag.sort(function(a, b){return 0.5 - Math.random()});
     ok.style.backgroundImage = "linear-gradient(rgba(85, 233, 238, 0.4), rgba(30, 60, 90, 0.267)), url('"+image[0]+"')";
     ok.style.backgroundSize = "100%";
+    ok.style.backgroundRepeat ="no-repeat";
     
     
   }

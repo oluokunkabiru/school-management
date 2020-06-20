@@ -38,6 +38,5 @@
 <script src="plugins/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="plugins/dist/js/pages/dashboard.js"></script>
-<script src="js/jquery.slide.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
