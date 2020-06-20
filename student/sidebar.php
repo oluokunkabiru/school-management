@@ -141,7 +141,7 @@
         
            <!-- Cateegories  -->
            <li class="nav-item has-treeview">
-            <a href="studentLogout.php" class="nav-link">
+            <a href="Logout.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Logout

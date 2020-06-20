@@ -55,7 +55,7 @@
           <div class="col-md-4 col-sm-3">
           </div>
           <div class="col-md-4">
-             <h3 class="text-center text-light bg-info mt-5 font-weight-bold rounded-circle p-3">About Us</h3>
+             <h3 class="text-center text-light bg-info mt-5 font-weight-bold rounded-circle p-3">Getting Help</h3>
           </div>
           <div class="col-md-4"></div>
         </div>
@@ -64,17 +64,15 @@
             <h3 class="btn btn-primary btn-block btn-lg">Admission Procedure</h3>
           </div>
           <div class="col-md-3 text-center text-light font-weight-bold">
-            <h3 class="btn btn-success btn-block btn-lg">Our Staff</h3>
+            <h3 class="btn btn-success btn-block btn-lg">Available Courses</h3>
           </div>
-          <div class="col-md-2 text-center text-light font-weight-bold">
-            <h3 class="btn btn-warning btn-block text-ligh btn-lgt">Contact Us</h3>
+          <div class="col-md-3 text-center text-light font-weight-bold">
+            <h3 class="btn btn-warning btn-block text-ligh btn-lg">Report Problem</h3>
           </div>
-          <div class="col-md-2 text-center text-light font-weight-bold">
+          <div class="col-md-3 text-center text-light font-weight-bold">
             <h3 class="btn btn-secondary btn-block btn-lg">About Us</h3>
           </div>
-          <div class="col-md-2 text-center text-light font-weight-bold">
-            <h3 class="btn btn-dark btn-block btn-lg">Our Services</h3>
-          </div>
+         
         </div>
 
       </div>

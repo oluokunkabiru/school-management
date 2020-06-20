@@ -177,7 +177,12 @@
               </li>
             </ul>
           </li>
-          
+          <li class="nav-item">
+                <a href="Logout.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Logout</p>
+                </a>
+              </li>
           
         </ul>
       </nav>

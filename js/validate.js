@@ -278,7 +278,6 @@ $().ready(function(){
             rules:{
                 phone:{
                     required:true,
-                    minlength:8
                 },
 
                 
@@ -291,8 +290,7 @@ $().ready(function(){
             },
             messages:{
                     phone:{
-                        required:"Email or Phone Number required",
-                        minlength:"Email or phone must be atleast 8 characters"
+                        required:"Email or Phone Number or Matric Number is required",
                     },
                     
                     password:{
