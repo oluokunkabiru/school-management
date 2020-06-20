@@ -15,8 +15,10 @@
 ?>
 <div class="content-wrapper">
     <!-- index image -->
-    <div class="container-fluid indexwelcome">
-        <h5 class="text-light pt-5 pb-5 text-center">OLUOKUN academy of Coding</h5>
+    <div class="" id="slide">
+      
+    
+        <h2 class="text-light pt-5 pb-5 text-center">OLUOKUN academy of Coding</h2>
         <div class="row">
             <div class="col-md-6 offset-2">
                 <div id="demo" class="carousel slide text-light text-center" data-ride="carousel">
@@ -50,62 +52,80 @@
             <div class="col-md-2">
 
             </div>
+          
         </div>
       
     </div>
     <!-- /inde imge -->
-    <?php 
-    $a =2;
-    while($a<20){
-      echo "$a<br>";
-      $a++;
-    }
-    ?>
-<!-- register modal -->
-<!-- <section>
-    <div class="modal fade" id="studentsignup">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h2 class="modal-title text-center ">Student Sign Up</h2>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-body">
-                    <div class="container register">
-                    <p class="errorsignup"></p>
-                    <form class="" action="" method="POST" id="studentRegisterForm" >
-                       <label for="email" class="mr-sm-2 mr-md-2">Surname:</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2 mr-md-1" id="sname" name="sname">
-                        <label for="email" class="mr-sm-2 mr-md-2">Firstname:</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" id="fname" name="fname">
-                        <label for="email" class="mr-sm-2 mr-md-2">Lastname:</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2" id="lname" name="lname">
-                        <label for="email" class="mr-sm-2 mr-md-2">Phone Number:</label>
-                        <input type="number" class="form-control mb-2 mr-sm-2" id="phone" name="phone">
-                        <label for="email" class="mr-sm-2 mr-md-2">Date of Birth:</label>
-                        <input type="date" class="form-control mb-2 mr-sm-2" id="dob" name="dob">
-                        <label for="pwd" class="mr-sm-2 mr-md-2">Choose Password:</label>
-                        <input type="password" class="form-control mb-2 mr-sm-2" id="password" name="password">
-                        <label for="pwd" class="mr-sm-2 mr-md-2">Confirm Password:</label>
-                        <input type="password" class="form-control mb-2 mr-sm-2" id="repassword" name="repassword">
-                        
-                        <button type="submit" class="btn btn-primary mb-2 float-right" id="studentSignUp" >Sign Up</button>
-                       <p class="text-center">Already Have Account  <a href="#studentlogin"  data-dismiss="modal" data-toggle="modal">Login</a></p>
-                    </form> 
-                    </div>
-                  </div>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default btn-danger" data-dismiss="modal">Close</button>
-            </div>
+    <div class="row">
+      <div class="col-md-4">
+        <!-- Widget: user widget style 2 -->
+        <div class="card card-widget widget-user-2">
+          <!-- Add the bg color to the header using any of the bg-* classes -->
+          <div class="widget-user-header bg-warning studentAdmission " >
+            
+            <!-- /.widget-user-image -->
+            <h3 class=" text-light font-weight-bold">Student Admission</h3>
+            <h5 class="widget-user-desc text-light font-weight-bold">in progress</h5>
+          </div>
+          <div class="card-footer p-2 pt-5">
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod vero in debitis, quos, aliquid doloribus repellendus, impedit laborum praesentium exercitationem provident repellat at unde obcaecati. Consequuntur possimus aspernatur magnam accusantium?
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, excepturi? Amet cum aliquid, voluptatibus odio accusantium expedita maxime, in non ipsa, veniam sapiente. Nisi id minus ullam eius amet veritatis?
+           <div class="card-link float-right"><a href="">Read More</a></div>
           </div>
         </div>
+        <!-- /.widget-user -->
       </div>
-</section> -->
-<!-- /register modal -->
+      <!-- /.col -->
+      <div class="col-md-4">
+        <!-- Widget: user widget style 1 -->
+        <div class="card card-widget widget-user">
+          <!-- Add the bg color to the header using any of the bg-* classes -->
+          <div class="widget-user-header bg-info">
+            <h3 class="widget-user-username">Management speech</h3>
+            <h5 class="widget-user-desc">Founder & CEO</h5>
+          </div>
+          <div class="widget-user-image">
+            <img class="img-circle elevation-2" src="image/doctor.png" alt="User Avatar">
+          </div>
+          <div class="card-footer">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam officia ipsam rem unde dicta tempora tempore voluptatum. Libero praesentium ex minima. Repellat minus odio molestiae iure esse at eos ullam?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis laborum aspernatur odio necessitatibus expedita eius perspiciatis ex blanditiis qui, rerum itaque dicta velit quod laudantium optio delectus molestias officiis voluptate.
+            <div class="card-link float-right"><a href="">Read More</a></div>
+
+             
+            <!-- /.row -->
+          </div>
+        </div>
+        <!-- /.widget-user -->
+      </div>
+      <!-- /.col -->
+      <div class="col-md-4">
+        <!-- Widget: user widget style 1 -->
+        <div class="card card-widget widget-user">
+          <!-- Add the bg color to the header using any of the bg-* classes -->
+          <div class="widget-user-header ourstaff text-center text-light font-weight-bold">
+            <h2 class="widget-user-username  font-weight-bold">Our Staff are</h2>
+            <h5 class="widget-user-desc font-weight-bold">very capable</h5>
+          </div>
+          
+          <div class="card-footer">
+           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi, repellat. Officia fugit doloremque dolorem laborum sint perferendis quis? Porro hic possimus alias, aut quam dolore molestiae quod fuga magnam ipsum?
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste at inventore possimus obcaecati praesentium! Quam rem harum quas beatae sequi minima repellendus, cupiditate perferendis pariatur deleniti reprehenderit id architecto vel.
+           <div class="card-link float-right"><a href="">Read More</a></div>
+
+            <!-- /.row -->
+          </div>
+        </div>
+        <!-- /.widget-user -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <h1>Background Slideshow With Image Lazy Load Demo</h1>
+    
+    
+  <img src="" alt="">
+
 <!-- login -->
 <section>
     <div class="modal fade" id="studentlogin">
@@ -233,7 +253,8 @@
 </section>
 <!-- /admin -->
 
-
+<img src="image/doctor.png" alt="">
+<img src="image/staff.jpg" alt="">
 
 </div>
 </div>
@@ -247,26 +268,7 @@
 
 <!-- sign up script -->
 <script>
-    // $('#studentSignUp').click(function(event){
-    //     event.preventDefault();
-    // $.ajax({
-    //     type:'POST',
-    //     url: 'student/SignUp.php',
-    //     data: $('#studentRegisterForm').serialize(),
-    //     success: function (data) {
-    //     var result=data;
-    //     $(".errorsignup").html(result);
-    //     if(result=="success"){
-    //     window.alert('register successfully');
-    //     }
-    //     }
-    // });
-  
-    // })
-  </script>
-  
-  <!-- login script -->
-  <script>
+   
   $('#stdlogin').click(function(event){
       event.preventDefault();
   $.ajax({
@@ -324,4 +326,12 @@ $('#adminlogin').click(function(event){
   });
   
   })
+  $()
+  function slider(){
+    var image = ["image/doctor.png","image/staff.jpg" ];
+    var ok = document.getElementById('slide');
+    ok.style.backgroundImage=image[0];
+    ok.innerHTML;
+    
+  }
   </script>
