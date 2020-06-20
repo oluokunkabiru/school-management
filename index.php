@@ -17,7 +17,7 @@
    
     <!-- /inde imge -->
     <div class="container-fluid">
-      <div id="slide" class="mt-5 mb-5 pt-5 pb-5">
+      <div id="slide" class="mb-5 pt-5 pb-5">
         <h2 class="text-center font-weight-bold mt-5 mb-5 text-light">OLUOKUN KABIR ACADEMY OF CODING</h2>
         <div class="row mt-5 mb-5">
           <div class="col-md-3">
@@ -273,7 +273,61 @@
 
 <!-- school news  -->
 <section>
+  
+      <div class="card card-default">
+        <div class="card-header">
+          <h1 class="card-title text-center">
+            <i class="fas fa-bullhorn"></i>
+            School News
+          </h1>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="callout callout-success">
+                <h3 class="font-weight-bold text-center">SCHOOL NEWS </h3>
 
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam harum sed quae unde quam qui architecto, aspernatur in eveniet deserunt illum nam soluta nesciunt repellendus optio quasi praesentium tempora inventore?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, iste recusandae, necessitatibus culpa, officia error cumque laudantium quidem voluptate ipsum animi natus accusamus est iusto soluta tempore consectetur. Eos, expedita.</p>
+                <a href="#" class="btn btn-warning">Read more <i class="fa fa-angle-double-right"></i></a>
+              </div>
+            </div>
+          <!-- </div> -->
+          <div class="col-md-4">
+              <div class="callout callout-info">
+                <h3 class="font-weight-bold text-center">STUDENT NEWS </h3>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam harum sed quae unde quam qui architecto, aspernatur in eveniet deserunt illum nam soluta nesciunt repellendus optio quasi praesentium tempora inventore?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, iste recusandae, necessitatibus culpa, officia error cumque laudantium quidem voluptate ipsum animi natus accusamus est iusto soluta tempore consectetur. Eos, expedita.</p>
+                <a href="#" class="btn btn-warning">Read more <i class="fa fa-angle-double-right"></i></a>
+              </div>
+          </div>
+
+          <div class="col-md-4">
+             <div class="callout callout-warning">
+              <h3 class="font-weight-bold text-center">STAFF NEWS </h3>
+
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam harum sed quae unde quam qui architecto, aspernatur in eveniet deserunt illum nam soluta nesciunt repellendus optio quasi praesentium tempora inventore?</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, iste recusandae, necessitatibus culpa, officia error cumque laudantium quidem voluptate ipsum animi natus accusamus est iusto soluta tempore consectetur. Eos, expedita.</p>
+              <a href="#" class="btn btn-warning">Read more <i class="fa fa-angle-double-right"></i></a>
+            </div>
+          </div>
+        </div>
+         
+         
+          <!-- <div class="callout callout-success">
+            <h5>I am a success callout!</h5>
+
+            <p>This is a green callout.</p>
+          </div> -->
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.col -->
+  </div>
 </section>
 <!-- /school news -->
 </div>
