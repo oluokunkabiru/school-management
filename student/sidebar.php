@@ -9,7 +9,7 @@
     
 ?>
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-light elevation-4" style="position:fixed; top: 0px; left: 0px; z-index: 1;">
+<aside class="main-sidebar sidebar-dark-secondary elevation-4 bg-primary" style="position:fixed; top: 0px; left: 0px; z-index: 1;">
     <!-- Brand Logo -->
     <a href="../index.php" class="brand-link">
       <img src="../image/village boy logo.jpg" alt="Logo" class="brand-image img-circle elevation-3"
@@ -92,12 +92,6 @@
           </a>
           <ul class="nav nav-treeview">
             
-            <li class="nav-item">
-              <a href="registeredCours.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Registered Courses</p>
-              </a>
-            </li>
             <li class="nav-item">
               <a href="newCourse.php" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>

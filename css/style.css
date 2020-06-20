@@ -26,4 +26,8 @@ aside{
     top: 0;
     left: 0;
 }
+nav ul li a.nav-link p{
+    text-decoration: none;
+    color: white;
+}
 
