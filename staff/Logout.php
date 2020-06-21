@@ -1,5 +1,5 @@
 <?php
 session_start();
-unset($_SESSION['stafftLogin']);
+unset($_SESSION['staffLogin']);
 header('location:../index.php');
 ?>
