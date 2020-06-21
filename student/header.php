@@ -1,9 +1,5 @@
 <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
 <link rel="stylesheet" href="../plugins/dist/css/adminlte.min.css">
-<link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-<link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
-<link rel="stylesheet" href="../plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
-<link rel="stylesheet" href="../css/print.min.css">
 <link rel="stylesheet" href="../css/style.css">
 
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
