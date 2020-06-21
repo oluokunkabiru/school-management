@@ -78,14 +78,12 @@
       </div>
     </div>
     <div class="container-fluid">
-    <div class="row">
+      <!-- <section>
+        <div class="row">
       <div class="col-md-4">
-        <!-- Widget: user widget style 2 -->
         <div class="card card-widget widget-user-2">
-          <!-- Add the bg color to the header using any of the bg-* classes -->
           <div class="widget-user-header bg-warning studentAdmission " >
             
-            <!-- /.widget-user-image -->
             <h3 class=" text-light font-weight-bold">Student Admission</h3>
             <h5 class="widget-user-desc text-light font-weight-bold">in progress</h5>
           </div>
@@ -95,13 +93,9 @@
            <div class="card-link float-right"><a href="">Read More</a></div>
           </div>
         </div>
-        <!-- /.widget-user -->
       </div>
-      <!-- /.col -->
       <div class="col-md-4">
-        <!-- Widget: user widget style 1 -->
         <div class="card card-widget widget-user">
-          <!-- Add the bg color to the header using any of the bg-* classes -->
           <div class="widget-user-header bg-info">
             <h3 class="widget-user-username">Management speech</h3>
             <h5 class="widget-user-desc">Founder & CEO</h5>
@@ -115,16 +109,11 @@
             <div class="card-link float-right"><a href="">Read More</a></div>
 
              
-            <!-- /.row -->
           </div>
         </div>
-        <!-- /.widget-user -->
       </div>
-      <!-- /.col -->
       <div class="col-md-4">
-        <!-- Widget: user widget style 1 -->
         <div class="card card-widget widget-user">
-          <!-- Add the bg color to the header using any of the bg-* classes -->
           <div class="widget-user-header ourstaff text-center text-light font-weight-bold">
             <h2 class="widget-user-username  font-weight-bold">Our Staff are</h2>
             <h5 class="widget-user-desc font-weight-bold">very capable</h5>
@@ -135,14 +124,12 @@
            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste at inventore possimus obcaecati praesentium! Quam rem harum quas beatae sequi minima repellendus, cupiditate perferendis pariatur deleniti reprehenderit id architecto vel.
            <div class="card-link float-right"><a href="">Read More</a></div>
 
-            <!-- /.row -->
           </div>
         </div>
-        <!-- /.widget-user -->
       </div>
-      <!-- /.col -->
     </div>
-<!-- login -->
+      </section> -->
+    
 <section>
     <div class="modal fade" id="studentlogin">
         <div class="modal-dialog modal-lg">
@@ -272,14 +259,13 @@
 <!-- school news  -->
 <section>
   
-      <div class="card card-default">
+      <!-- <div class="card card-default">
         <div class="card-header">
           <h1 class="card-title text-center">
             <i class="fas fa-bullhorn"></i>
             School News
           </h1>
         </div>
-        <!-- /.card-header -->
         <div class="card-body">
           <div class="row">
             <div class="col-md-4">
@@ -291,7 +277,6 @@
                 <a href="#" class="btn btn-warning">Read more <i class="fa fa-angle-double-right"></i></a>
               </div>
             </div>
-          <!-- </div> -->
           <div class="col-md-4">
               <div class="callout callout-info">
                 <h3 class="font-weight-bold text-center">STUDENT NEWS </h3>
@@ -314,20 +299,12 @@
         </div>
          
          
-          <!-- <div class="callout callout-success">
-            <h5>I am a success callout!</h5>
-
-            <p>This is a green callout.</p>
-          </div> -->
+         
         </div>
-        <!-- /.card-body -->
       </div>
-      <!-- /.card -->
-    </div>
-    <!-- /.col -->
+    </div> -->
   </div>
 </section>
-<!-- /school news -->
 </div>
 </div>
 
