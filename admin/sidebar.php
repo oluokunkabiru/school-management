@@ -20,12 +20,18 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="" class="img-circle elevation-2" alt="User Image">
-        </div>
+      
+          <img class="profile-user-img img-fluid img-circle"
+                     src= "../admin/<?php
+                      if(!empty($admin['profilePicture'])){
+                          echo htmlentities($admin['profilePicture']);
+                      }else{
+                          echo "<span style ='color:red'>Not Yet Set</span>";
+                      }
+                     ?>"
+                     alt="User profile picture">
         <div class="info">
-          <a href="#" class="d-block"><?php echo $names;?> </a>
+          <a href="AdminDashboard.php" class="d-block"><?php echo $names;?> </a>
         </div>
       </div>
 

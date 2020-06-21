@@ -31,7 +31,7 @@
                      ?>"
                      alt="User profile picture">
         <div class="info">
-          <a href="#" class="d-block"><?php echo $name;?> </a>
+          <a href="StaffDashboard.php" class="d-block"><?php echo $name;?> </a>
         </div>
       </div>
 
