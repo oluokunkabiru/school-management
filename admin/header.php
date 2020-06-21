@@ -23,7 +23,7 @@ if(isset($_SESSION['adminLogin'])){
     <ul class="navbar-nav ml-auto">
       
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="StaffDashboard.php" class="nav-link">Home</a>
+        <a href="AdminDashboard.php" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -63,10 +63,25 @@ if(isset($_SESSION['adminLogin'])){
         </div>
       </div>
     </form>
+    
 </nav>
-<section id="searchDetails">
 
-</section>
+<!-- <div class="content-wrapper"> -->
+    <!-- index image -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      
+    </div>
+    <div class="col-md-10">
+      <section class="content" id="searchDetails">
+    </section>
+    </div>
+  </div>
+</div>
+    
+<!-- </div> -->
+
 <?php
 }
 else{
@@ -121,4 +136,18 @@ function department(str) {
         xmlhttp.send();
     }
 }
+</script>
+
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
+  });
 </script>

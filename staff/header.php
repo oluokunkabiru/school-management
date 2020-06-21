@@ -42,9 +42,17 @@ if(isset($_SESSION['staffLogin'])){
       </div>
     </form>
 </nav>
-<section id="searchDetails">
-
-</section>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      
+    </div>
+    <div class="col-md-10">
+      <section class="content" id="searchDetails">
+    </section>
+    </div>
+  </div>
+</div>
 <?php
 }
 else{
