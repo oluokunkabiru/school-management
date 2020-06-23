@@ -1,25 +1,10 @@
-<?php
-if(isset($_SESSION['adminLogin'])){
-  include("../includes/connection.php");
-  // $user =$_SESSION['adminLogin'];
-  //  $stmt = "SELECT* FROM staff WHERE email = '$user'|| Phone_Number = '$user'";
-  //  $qe = mysqli_query($conn, $stmt);
-  //  $staff = mysqli_fetch_array($qe);
-  //  $dept = $staff['category'];
-  //  $staffid = $staff['StaffId'];
-  //  echo $dept;
-
-?>
 <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
 <link rel="stylesheet" href="../plugins/dist/css/adminlte.min.css">
 <link rel="stylesheet" href="../css/style.css">
-
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
       <a class="nav-link" data-widget="pushmenu" href=""><i class="fas fa-bars"></i></a>
-
-    <ul class="navbar-nav ml-auto">
-      
+    <ul class="navbar-nav ml-auto">     
       <li class="nav-item d-none d-sm-inline-block">
         <a href="AdminDashboard.php" class="nav-link">Home</a>
       </li>
@@ -27,7 +12,6 @@ if(isset($_SESSION['adminLogin'])){
         <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
-
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group">
@@ -39,7 +23,6 @@ if(isset($_SESSION['adminLogin'])){
         </div>
       </div>
     </form>
-
     <form class="form-inline ml-3">
       <div class="input-group input-group">
         <input class="form-control form-control-navbar" type="search" onkeyup="staff(this.value)" placeholder="Search Staff" aria-label="Search">
@@ -50,7 +33,6 @@ if(isset($_SESSION['adminLogin'])){
         </div>
       </div>
     </form>
-
     <form class="form-inline ml-3">
       <div class="input-group input-group">
         <input class="form-control form-control-navbar" type="search" onkeyup="department(this.value)" placeholder="Search Department" aria-label="Search">
@@ -61,15 +43,12 @@ if(isset($_SESSION['adminLogin'])){
         </div>
       </div>
     </form>
-    
 </nav>
-
 <!-- <div class="content-wrapper"> -->
     <!-- index image -->
 <div class="container">
   <div class="row">
     <div class="col-md-2">
-      
     </div>
     <div class="col-md-10">
       <section class="content" id="searchDetails">
@@ -77,15 +56,7 @@ if(isset($_SESSION['adminLogin'])){
     </div>
   </div>
 </div>
-    
 <!-- </div> -->
-
-<?php
-}
-else{
-  header('location:../index.php');
-}
-?>
 <script>
 function student(str) {
     if (str.length == 0) {
@@ -102,7 +73,6 @@ function student(str) {
         xmlhttp.send();
     }
 }
-
 function staff(str) {
     if (str.length == 0) {
         document.getElementById("searchDetails").innerHTML = "";
@@ -118,7 +88,6 @@ function staff(str) {
         xmlhttp.send();
     }
 }
-
 function department(str) {
     if (str.length == 0) {
         document.getElementById("searchDetails").innerHTML = "";

@@ -1,7 +1,7 @@
 <?php
      session_start();
      if(isset($_SESSION['adminLogin'])){
-    include('header.php');
+  
     include("../includes/connection.php");
 
     $user =$_SESSION['adminLogin'];
@@ -175,7 +175,6 @@
                     $updat = mysqli_query($conn, $update);
                     // echo "<br> $profile_picture";
                     if($updat){
-                        echo "<h2> Your data Update Succefully</h2";
                         header("location:studentUpdateProfile.php?id=$id");
                     }else{
                         echo "<h2 class = 'text-danger'> Fail to Update</h2>".mysqli_error($conn);
@@ -194,6 +193,7 @@
 </head>
 <?php
     include('sidebar.php');
+    include('header.php');
     ?>
 <body>
     
@@ -217,7 +217,7 @@
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="manageStudent.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -236,7 +236,7 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="manageStaff.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -255,7 +255,7 @@
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="manageCourse.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -274,7 +274,7 @@
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="manageDepartment.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

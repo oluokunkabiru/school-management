@@ -1,7 +1,7 @@
 <?php
      session_start();
      if(isset($_SESSION['adminLogin'])){
-    include('header.php');
+    
     include("../includes/connection.php");
 
     $user =$_SESSION['adminLogin'];
@@ -146,6 +146,7 @@
 </head>
 <?php
     include('sidebar.php');
+    include('header.php');
     ?>
 <body>
     

@@ -1,7 +1,6 @@
 <?php
      session_start();
      if(isset($_SESSION['adminLogin'])){
-    include('header.php');
     include("../includes/connection.php");
     // include('create.php');
 
@@ -218,7 +217,9 @@
     <title>Admin:: edit <?php echo $staffname?> Details</title>
     <link rel="stylesheet" href=>
 </head>
-<?php
+<?php 
+   include('header.php');
+
     include('sidebar.php');
     ?>
 <body>
