@@ -61,7 +61,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="computeStudentsResult.php" class="nav-link active">
+                  <a href="computeStudentsResult.php" class="nav-link">
                     <i class="fa fa-graduation-cap nav-icon"></i>
                     <p>Compute Result</p>
                   </a>
@@ -93,7 +93,7 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="studentUpdateProfile.php" class="nav-link active">
+              <a href="studentUpdateProfile.php" class="nav-link">
                 <i class="fas fa-graduation-cap nav-icon"></i>
                 <p>Student Details</p>
               </a>
@@ -119,7 +119,7 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="#studentsignup" class="nav-link active">
+              <a href="#studentsignup" class="nav-link">
                 <i class="fas fa-graduation-cap nav-icon"></i>
                 <p>View All Courses</p>
               </a>
@@ -145,7 +145,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href=".php" class="nav-link active">
+                <a href=".php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>School information</p>
                 </a>

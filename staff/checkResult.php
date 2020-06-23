@@ -197,7 +197,7 @@
                       }
                      ?>"
                      alt="User profile picture"></td>
-                    <td><a href="">View</a></td>
+                    <td><a href="viewStudentResult.php?id=<?php echo $studentId?>&semester=<?php echo $semester?>&level=<?php echo $levels?>">View</a></td>
                     </tr>
                   <?php
                   $no++;
@@ -243,14 +243,8 @@
 
 <script>
   $(function () {
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-    });
+    $("#example1").DataTable();
+    
   });
 
 
