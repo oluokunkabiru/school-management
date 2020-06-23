@@ -155,7 +155,13 @@
                 </li>
           </ul>
         </li>
-        
+        <li class="nav-item">
+          <a href="computingStudentResult.php" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Compute Student Result</p>
+          </a>
+        </li>
+
         <li class="nav-item">
                 <a href="Logout.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
