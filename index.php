@@ -78,7 +78,7 @@
       </div>
     </div>
     <div class="container-fluid">
-      <!-- <section>
+      <section>
         <div class="row">
       <div class="col-md-4">
         <div class="card card-widget widget-user-2">
@@ -259,7 +259,7 @@
 <!-- school news  -->
 <section>
   
-      <!-- <div class="card card-default">
+      <div class="card card-default">
         <div class="card-header">
           <h1 class="card-title text-center">
             <i class="fas fa-bullhorn"></i>
@@ -302,7 +302,7 @@
          
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </section>
 </div>
