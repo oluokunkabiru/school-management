@@ -93,7 +93,7 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="studentUpdateProfile.php" class="nav-link">
+              <a href="manageStudent.php" class="nav-link">
                 <i class="fas fa-graduation-cap nav-icon"></i>
                 <p>Student Details</p>
               </a>
@@ -119,13 +119,13 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="#studentsignup" class="nav-link">
+              <a href="manageCourse.php" class="nav-link">
                 <i class="fas fa-graduation-cap nav-icon"></i>
                 <p>View All Courses</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="manageStaff.php" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>View All Staffs</p>
               </a>
@@ -135,48 +135,7 @@
         </li>
         
            <!-- Cateegories  -->
-           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Manage Resourse
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href=".php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>School information</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href=".php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Faculty</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href=".php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Department</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href=".php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Student</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href=".php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manage Courses</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+         
           <li class="nav-item">
                 <a href="Logout.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

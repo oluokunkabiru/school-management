@@ -124,7 +124,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h1 class="card-title">Manage Students</h1>
+              <h1 class="card-title">Manage Students  for<b> <?php echo $dept ?></b></h1>
             </div>
            
             <!-- /.card-header -->
@@ -236,13 +236,6 @@
 
 <script>
   $(function () {
-    $('#example1').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-    });
+    $('#example1').DataTable();
   });
 </script>

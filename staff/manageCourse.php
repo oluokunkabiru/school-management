@@ -124,7 +124,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h1 class="card-title">Manage Courses</h1>
+              <h1 class="card-title">Manage Courses  for <b> <?php echo $dept ?></b></h1>
             </div>
            
             <!-- /.card-header -->

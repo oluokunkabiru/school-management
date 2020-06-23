@@ -7,7 +7,6 @@ if(isset($_SESSION['staffLogin'])){
    $staff = mysqli_fetch_array($qe);
    $dept = $staff['category'];
    $staffid = $staff['StaffId'];
-   echo $dept;
 
 ?>
 <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
