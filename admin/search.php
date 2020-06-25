@@ -54,7 +54,9 @@
                 
                 
                   <td>
-                    <a href="resultprocessing.php?id='.$studentId.'">Upload Result</a>|<a href="studentDetails.php?id='.$studentId.'">Details</a>
+                    <a href="resultprocessing.php?id='.$studentId.'
+                    ">Upload Result</a><p></p><a href="viewStudentResult.php?id='.$studentId.'&semester='.$semester.'&level='.$levels.'
+                    ">Check Result</a><p></p><a href="studentDetails.php?id='.$studentId.'">View Details</a>
                   </td>
                 </tr>';
                 
@@ -66,6 +68,8 @@ echo '  </tbody>
     </div>';
               
 }
+
+
 
 // get staff details
 

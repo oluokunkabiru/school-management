@@ -96,6 +96,63 @@ if(isset($_GET['grade'])){
 }
 
 
+// check result
+if(isset($_GET['levelss'])){
+  $_SESSION['levels']= $_GET['levelss'];
+  $facultys = $_SESSION['getfaculty'];
+  $department = $_SESSION['department'];
+  $de = "Computer Science and Engineering";
+  $level =$_SESSION['levels'];
+  $id =1;
+  echo "<tbody>";
+  $qu = mysqli_query($conn, "SELECT * FROM student WHERE Department='$department' AND Level = '$level' AND Faculty = '$facultys' ");
+          while($student = mysqli_fetch_array($qu)){
+              $name = $student['SurName']." ".$student['FirstName']." ".$student['LastName'];
+              $matric = $student['matricNo'];
+              $levels = $student['Level'];
+              $studentId = $student['StudentId'];
+              $faculty = $student['Faculty'];
+              $semester = $student['CurrentSemester'];
+              $department = $student['Department'];
+              $profile = $student['profilePicture'];    
+       echo '     <tr>
+              <td> '. $id .'</td>
+              <td> '. $name.'</td>
+              <td>  '.$matric.'</td>
+              <td>  '.$levels.'</td>
+              <td>'. $department.'</td>
+              <td>'.$semester .'</td>
+              <td>
+                <img class="profile-user-img img-fluid img-circle"
+                     src= "';
+                      if(!empty($profile)){
+                        echo  htmlentities($profile);
+                      }else{
+                         echo  "<span style ='color:red'>Not Yet Set</span>";
+                      }
+                   echo ' "
+                     alt="Course Logo">
+                </td>
+              
+              
+                <td>
+                  <a href="viewStudentResult.php?semester='.$semester.'&id='.$studentId.'&level='.$levels.'">View Result</a>
+                </td>
+              </tr>';
+              
+              $id++;
+                  }
+              
+echo '  </tbody>';
+          }
+               
+if(isset($_GET['grade'])){
+
+$grade = $_GET['grade'];
+echo $grade;
+}
+
+
 
 if(isset($_GET['staffFaculty'])){
 

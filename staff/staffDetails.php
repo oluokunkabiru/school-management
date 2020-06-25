@@ -1,9 +1,9 @@
 <?php
      session_start();
-     if(isset($_SESSION['adminLogin'])){
+     if(isset($_SESSION['staffLogin'])){
     include('header.php');
     include("../includes/connection.php");
-    $user =$_SESSION['adminLogin'];
+    $user =$_SESSION['staffLogin'];
     $id = $_GET['id'];
     $stmt = "SELECT* FROM staff WHERE StaffId = '$id'";
     $qe = mysqli_query($conn, $stmt);
@@ -15,7 +15,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin:: View  <?php echo $name ?> Details</title>
+    <title>View :: <?php echo $name ?> Details</title>
     <link rel="stylesheet" href=>
 </head>
 <?php
@@ -35,8 +35,8 @@
             <!-- small box -->
             <div class="small-box bg-info">
             <?php
-              $staff = mysqli_query($conn, "SELECT COUNT(id) AS totalStudent FROM student");
-              $TotalStudent = mysqli_fetch_array($staff);
+              $students = mysqli_query($conn, "SELECT COUNT(id) AS totalStudent FROM student WHERE Department ='$dept' ");
+              $TotalStudent = mysqli_fetch_array($students);
               ?>
               <div class="inner">
                 <h3><?php echo htmlentities($TotalStudent['totalStudent']);?></h3>
@@ -53,7 +53,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <?php
-              $staff = mysqli_query($conn, "SELECT COUNT(id) AS totalStaff FROM staff");
+              $staff = mysqli_query($conn, "SELECT COUNT(id) AS totalStaff FROM staff WHERE category = '$dept' ");
               $TotalStaff = mysqli_fetch_array($staff);
               ?>
               <div class="inner">
@@ -72,8 +72,8 @@
             <!-- small box -->
             <div class="small-box bg-warning">
             <?php
-              $staff = mysqli_query($conn, "SELECT COUNT(id) AS totalCourses FROM courses");
-              $TotalCourse = mysqli_fetch_array($staff);
+              $course = mysqli_query($conn, "SELECT COUNT(id) AS totalCourses FROM courses WHERE CourseCategory ='$dept' ");
+              $TotalCourse = mysqli_fetch_array($course);
               ?>
               <div class="inner">
                 <h3><?php echo htmlentities($TotalCourse['totalCourses']);?></h3>
@@ -91,8 +91,8 @@
             <!-- small box -->
             <div class="small-box bg-danger">
             <?php
-              $staff = mysqli_query($conn, "SELECT COUNT(id) AS totaldepartment FROM department");
-              $Totaldepartment = mysqli_fetch_array($staff);
+              $depttment = mysqli_query($conn, "SELECT COUNT(id) AS totaldepartment FROM department");
+              $Totaldepartment = mysqli_fetch_array($depttment);
               ?>
               <div class="inner">
                 <h3><?php echo htmlentities($Totaldepartment['totaldepartment']);?></h3>
@@ -102,7 +102,7 @@
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="manageDepartment.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

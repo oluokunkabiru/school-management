@@ -6,10 +6,10 @@
     $qe = mysqli_query($conn, $stmt);
     $students = mysqli_fetch_array($qe);
     $names = htmlentities(strtoupper( $students['SurName']." ".$students['FirstName']." ".$students['LastName']));
-    
+    $profile = $students['profilePicture'];
 ?>
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-secondary elevation-4 bg-primary" style="position:fixed; top: 0px; left: 0px; z-index: 1;">
+<aside class="main-sidebar sidebar-dark-secondary elevation-4 bg-success" style="position:fixed; top: 0px; left: 0px; z-index: 1;">
     <!-- Brand Logo -->
     <a href="../index.php" class="brand-link">
       <img src="../image/village boy logo.jpg" alt="Logo" class="brand-image img-circle elevation-3"
@@ -22,8 +22,15 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="" class="img-circle elevation-2" alt="User Image">
-        </div>
+        <img class="profile-user-img img-fluid img-circle"
+                       src="<?php
+                        if(!empty($student['profilePicture'])){
+                            echo htmlentities($student['profilePicture']);
+                        }else{
+                            echo "<span style ='color:red'>Not Yet Set</span>";
+                        }
+                       ?>"
+                       alt="User profile picture">                    </div>
         <div class="info">
           <a href="#" class="d-block"><?php echo $names;?> </a>
         </div>
@@ -60,19 +67,14 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="currentSemesterResult.php" class="nav-link active">
+                  <a href="currentSemesterResult.php" class="nav-link">
                     <i class="fa fa-graduation-cap nav-icon"></i>
                     <p>Current Semester</p>
                   </a>
                 </li>
+               
                 <li class="nav-item">
-                  <a href="#" class="nav-link" data-toggle="modal">
-                    <i class="fas fa-chalkboard-teacher nav-icon"></i>
-                    <p>Previous Semester</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link" data-toggle="modal">
+                  <a href="allresult.php" class="nav-link">
                     <i class="fas fa-chalkboard-teacher nav-icon"></i>
                     <p>All Semester</p>
                   </a>

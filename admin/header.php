@@ -15,7 +15,7 @@
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group">
-        <input class="form-control form-control-navbar" type="search" onkeyup="student(this.value)" placeholder="Search Student" aria-label="Search">
+        <input class="form-control form-control-navbar" type="search" onkeyup="students(this.value)" placeholder="Search Student" aria-label="Search">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fas fa-search"></i>
@@ -25,7 +25,7 @@
     </form>
     <form class="form-inline ml-3">
       <div class="input-group input-group">
-        <input class="form-control form-control-navbar" type="search" onkeyup="staff(this.value)" placeholder="Search Staff" aria-label="Search">
+        <input class="form-control form-control-navbar" type="search" onkeyup="staffs(this.value)" placeholder="Search Staff" aria-label="Search">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fas fa-search"></i>
@@ -35,7 +35,7 @@
     </form>
     <form class="form-inline ml-3">
       <div class="input-group input-group">
-        <input class="form-control form-control-navbar" type="search" onkeyup="department(this.value)" placeholder="Search Department" aria-label="Search">
+        <input class="form-control form-control-navbar" type="search" onkeyup="departments(this.value)" placeholder="Search Department" aria-label="Search">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fas fa-search"></i>
@@ -58,7 +58,7 @@
 </div>
 <!-- </div> -->
 <script>
-function student(str) {
+function students(str) {
     if (str.length == 0) {
         document.getElementById("searchDetails").innerHTML = "";
         return;
@@ -73,7 +73,7 @@ function student(str) {
         xmlhttp.send();
     }
 }
-function staff(str) {
+function staffs(str) {
     if (str.length == 0) {
         document.getElementById("searchDetails").innerHTML = "";
         return;
@@ -88,7 +88,7 @@ function staff(str) {
         xmlhttp.send();
     }
 }
-function department(str) {
+function departments(str) {
     if (str.length == 0) {
         document.getElementById("searchDetails").innerHTML = "";
         return;
