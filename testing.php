@@ -6,25 +6,25 @@
   <title>Document</title>
 </head>
 <body>
-  <?php echo date('y');?>
-  <form action="" method="post" id="upadateProfileDetails" enctype="multipart/form-data" id="upadateProfileDetails">
-    <input type="file" name="" id="profile_picture">
-  </form>
+  <input type="text" onkeyup="data(this.value)">
+  <h1 id="show"></h1>
 </body>
 </html>
 <script src="plugins/jquery/jquery.min.js"></script>
 <script>
-        function filePreview(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#upadateProfileDetails + img').remove();
-                    $('#upadateProfileDetails').after('<img src="'+e.target.result+'" width="450" height="400"/>');
-                };
-                reader.readAsDataURL(input.files[0]);
+  function data(str) {
+    if (str.length == 0) {
+        document.getElementById("show").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("show").innerHTML = this.responseText;
             }
-        }
-        $("#profile_picture").change(function () {
-            filePreview(this);
-        });
-          </script>
+        };
+        xmlhttp.open("GET", "admin/search.php?student=" + str, true);
+        xmlhttp.send();
+    }
+}
+</script>

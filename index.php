@@ -328,7 +328,7 @@
       var result=data;
       $(".errorlogin").html(result);
       if(result=="Login Successfully"){
-        window.location.assign("student/StudentDashboard.php"); 
+        window.location.assign("student/index.php"); 
         
       }
       }
@@ -348,7 +348,7 @@ $('#stafflogin').click(function(event){
       var result=data;
       $(".errorlogin").html(result);
       if(result=="Login Successfully"){
-        window.location.assign("staff/StaffDashboard.php"); 
+        window.location.assign("staff/index.php"); 
         
       }
       }
@@ -369,7 +369,7 @@ $('#adminlogin').click(function(event){
       var result=data;
       $(".errorlogin").html(result);
       if(result=="Login Successfully"){
-        window.location.assign("admin/AdminDashboard.php"); 
+        window.location.assign("admin/index.php"); 
         
       }
       }

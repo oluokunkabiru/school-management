@@ -106,7 +106,7 @@
           }else {
             $class = "PROBATION";
           }
-          echo "<br> Class = $class";
+          // echo "<br> Class = $class";
 
 
                     if(count($error)==0){
@@ -418,6 +418,8 @@
         });
 
 var sum = 0;
+
+
         function student(select) {
     if (select.length == 0) {
         document.getElementById("grading").innerHTML = "0";
