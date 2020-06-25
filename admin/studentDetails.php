@@ -9,6 +9,11 @@
     $qe = mysqli_query($conn, $stmt);
     $student = mysqli_fetch_array($qe);
     $name = htmlentities(strtoupper($student['SurName']." ".$student['FirstName']." ".$student['LastName']));
+
+
+    
+   
+
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -159,6 +164,13 @@
                       echo "<span style ='color:red'>Not Yet Set</span>";
                   }
                  ?></b></li>
+                  <li class="list-group-item">CGPA: <b><?php
+                        if(!empty($student['CGPA'])){
+                            echo htmlentities($student['CGPA']);
+                        }else{
+                            echo "<span style ='color:red'>Not Yet Set</span>";
+                        }
+                       ?></b></li>
                 </ul>
                 
 
@@ -231,13 +243,16 @@
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }
                        ?></b></li>
-                          <li class="list-group-item">CGPA: <b><?php
-                        if(!empty($student['CGPA'])){
-                            echo htmlentities($student['CGPA']);
+                         
+                        <li class="list-group-item">
+                    Current Class:<b> <?php
+                        if(!empty($student['class'])){
+                            echo htmlentities($student['class']);
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }
-                       ?></b></li>
+                       ?></b>
+                  </li>
                           <li class="list-group-item">Student Id : <b><?php
                         if(!empty($student['StudentId'])){
                             echo htmlentities($student['StudentId']);

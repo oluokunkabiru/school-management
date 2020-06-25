@@ -210,7 +210,6 @@ function levels(str) {
                 var ret = this.responseText
                 result.innerHTML = ret;
                 level = str;
-                console.log(level);
             }
         };
         xmlhttp.open("GET", "result.php?level="+str, true);
@@ -232,7 +231,6 @@ function semester(str) {
                 var ret = this.responseText
                 result.innerHTML = ret;
                 semesters = str;
-                console.log(semesters);
             }
         };
         studentId = "<?php echo $studentId?>";

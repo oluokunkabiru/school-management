@@ -31,7 +31,7 @@
                      ?>"
                      alt="User profile picture">
         <div class="info">
-          <a href="AdminDashboard.php" class="d-block"><?php echo $names;?> </a>
+          <a href="index.php" class="d-block"><?php echo $names;?> </a>
         </div>
       </div>
 
@@ -41,7 +41,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="AdminDashboard.php" class="nav-link active">
+            <a href="index.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
