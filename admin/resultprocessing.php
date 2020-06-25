@@ -36,6 +36,7 @@
           $gradess = explode(",", $courses['grades']);
           $to = array_sum($courseUnit);
           $sco = array_sum($scoress);
+          // echo $to;
         
     
         if(isset($_POST['uploadResult'])){

@@ -17,7 +17,7 @@
     $points =[];
     while ($courses = mysqli_fetch_array($regcourse)){
       $tup = $courses['totalunitpoint'];
-      $point = $courses['points'];
+      $point = $courses['courseUnit'];
       array_push($tups, $tup);
       array_push($points, $point);
     }
