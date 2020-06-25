@@ -11,44 +11,7 @@
     $name = htmlentities(strtoupper($student['SurName']." ".$student['FirstName']." ".$student['LastName']));
 
 
-    $studentId = $id;
-    $regcourse = mysqli_query($conn, "SELECT* FROM registeredcourse WHERE studentId = '$studentId'");
-    $tups = [];
-    $points =[];
-    while ($courses = mysqli_fetch_array($regcourse)){
-      $tup = $courses['totalunitpoint'];
-      $point = $courses['courseUnit'];
-      array_push($tups, $tup);
-      array_push($points, $point);
-    }
-    $totalpoint =[];
-    $totalunit =[];
-    $p = implode(",",$points );
-    $u = implode(",", $tups);
-
-    $totalpoint = explode(",", $p);
-    $totalunit = explode(",", $u);
-    $pointss = array_sum($totalpoint);
-    $unit = array_sum($totalunit);
-    $cgpa = $unit/$pointss;
-    $class ="";
-    if($cgpa <=5.000 && $cgpa >=4.500){
-      $class ="FIRST CLASS";
-    }elseif($cgpa <4.500 && $cgpa >=3.500){
-     $class ="SECOND CLASS UPPER";
-   }elseif($cgpa <3.500 && $cgpa >=2.500){
-     $class ="SECOND CLASS LOWER";
-   }elseif($cgpa <2.500 && $cgpa >=1.500){
-     $class ="THIRD CLASS";
-   }elseif($cgpa <1.500 && $cgpa >=0.900){
-     $class ="PASS";
-   }else {
-     $class = "PROBATION";
-   }
-  //  update database with cgpa and class
-  $updat = "UPDATE student SET cgpa = '$cgpa', class = '$class' WHERE StudentId = '$studentId' ";
-  $update = mysqli_query($conn, $updat);
-  
+    
    
 
     ?>
@@ -201,6 +164,13 @@
                       echo "<span style ='color:red'>Not Yet Set</span>";
                   }
                  ?></b></li>
+                  <li class="list-group-item">CGPA: <b><?php
+                        if(!empty($student['CGPA'])){
+                            echo htmlentities($student['CGPA']);
+                        }else{
+                            echo "<span style ='color:red'>Not Yet Set</span>";
+                        }
+                       ?></b></li>
                 </ul>
                 
 
@@ -273,13 +243,16 @@
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }
                        ?></b></li>
-                          <li class="list-group-item">CGPA: <b><?php
-                        if(!empty($student['CGPA'])){
-                            echo htmlentities($student['CGPA']);
+                         
+                        <li class="list-group-item">
+                    Current Class:<b> <?php
+                        if(!empty($student['class'])){
+                            echo htmlentities($student['class']);
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }
-                       ?></b></li>
+                       ?></b>
+                  </li>
                           <li class="list-group-item">Student Id : <b><?php
                         if(!empty($student['StudentId'])){
                             echo htmlentities($student['StudentId']);

@@ -110,6 +110,8 @@
                         }
                        ?></b>
                   </li>
+
+                 
                 </ul>
 
               </div>
@@ -145,6 +147,15 @@
                                 echo "<span style ='color:red'>Not Yet Set</span>";
                             }
                            ?></b></li>
+                            <li class="list-group-item">
+                    Current Class:<b> <?php
+                        if(!empty($student['class'])){
+                            echo htmlentities($student['class']);
+                        }else{
+                            echo "<span style ='color:red'>Not Yet Set</span>";
+                        }
+                       ?></b>
+                  </li>
 
                         </ul>
                          

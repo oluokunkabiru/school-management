@@ -125,11 +125,50 @@
                     if($updat){
                         echo "<h2> Your data Update Succefully</h2";
                         header("location:computingStudentResult.php");
+
                     }else{
                         echo "<h2 class = 'text-danger'> Fail to Update</h2>".mysqli_error($conn);
                     }
                     // echo $profile_picture;
                 }
+                $studentId = $id;
+    $regcourse = mysqli_query($conn, "SELECT* FROM registeredcourse WHERE studentId = '$studentId'");
+    $tups = [];
+    $points =[];
+    while ($courses = mysqli_fetch_array($regcourse)){
+      $tup = $courses['totalunitpoint'];
+      $point = $courses['courseUnit'];
+      array_push($tups, $tup);
+      array_push($points, $point);
+    }
+    $totalpoint =[];
+    $totalunit =[];
+    $p = implode(",",$points );
+    $u = implode(",", $tups);
+
+    $totalpoint = explode(",", $p);
+    $totalunit = explode(",", $u);
+    $pointss = array_sum($totalpoint);
+    $unit = array_sum($totalunit);
+    $cgpa = $unit/$pointss;
+    $class ="";
+    if($cgpa <=5.000 && $cgpa >=4.500){
+      $class ="FIRST CLASS";
+    }elseif($cgpa <4.500 && $cgpa >=3.500){
+     $class ="SECOND CLASS UPPER";
+   }elseif($cgpa <3.500 && $cgpa >=2.500){
+     $class ="SECOND CLASS LOWER";
+   }elseif($cgpa <2.500 && $cgpa >=1.500){
+     $class ="THIRD CLASS";
+   }elseif($cgpa <1.500 && $cgpa >=0.900){
+     $class ="PASS";
+   }else {
+     $class = "PROBATION";
+   }
+  //  update database with cgpa and class
+  $updat = "UPDATE student SET cgpa = '$cgpa', class = '$class' WHERE StudentId = '$studentId' ";
+  $update = mysqli_query($conn, $updat);
+  
             }
         
     ?>
