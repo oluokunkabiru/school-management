@@ -29,7 +29,7 @@
              
             
               <!-- The slideshow -->
-              <div class="carousel-inner">
+              <!-- <div class="carousel-inner">
                 <div class="carousel-item active">
                   <h4>Building student with technology </h4>
                 </div>
@@ -39,7 +39,7 @@
                 <div class="carousel-item">
                   <h4>Student success in IT is very important</h4>
                 </div>
-              </div>
+              </div> -->
             
               
             
@@ -55,11 +55,11 @@
           <div class="col-md-4 col-sm-3">
           </div>
           <div class="col-md-4">
-             <h3 class="text-center text-light bg-info mt-5 font-weight-bold rounded-circle p-3">Getting Help</h3>
+            <a href="#help" data-toggle="modal"> <h3 class="text-center text-light bg-info mt-5 font-weight-bold rounded-circle p-3">Getting Help</h3></a>
           </div>
           <div class="col-md-4"></div>
         </div>
-        <div class="row mt-5 mb-5">
+        <!-- <div class="row mt-5 mb-5">
           <div class="col-md-3 text-center text-light font-weight-bold">
             <h3 class="btn btn-primary btn-block btn-lg">Admission Procedure</h3>
           </div>
@@ -73,8 +73,30 @@
             <h3 class="btn btn-secondary btn-block btn-lg">About Us</h3>
           </div>
          
-        </div>
+        </div> -->
 
+
+        <div class="modal fade" id="help">
+          <div class="modal-dialog">
+            <div class="modal-content bg-info text-light">
+              <div class="modal-header">
+                <h4 class="modal-title">Getting Help</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <p>One fine body&hellip;</p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus nam dolores ullam debitis facere, eum consectetur obcaecati numquam! Culpa odit placeat exercitationem iusto reiciendis. Id dolor optio doloribus voluptas possimus?
+              </div>
+              <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-light">Read More</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
       </div>
     </div>
     <div class="container-fluid">
