@@ -20,6 +20,7 @@
     $title = [];
     $code =[];
     $total = 0;
+    $sta =[];
      
      
    
@@ -38,6 +39,7 @@
           array_push( $unit,$course['CourseUnit']);
           array_push($title, $course['CourseTitle']);
           array_push($code, $course['CourseCode']);
+          array_push($sta, "0");
           $total = $uni+$total;
           if($level != 500 && $total >24){
             array_push($error, "You can't Register more than 25 units");
@@ -67,7 +69,9 @@
           $titles = implode(",", $title);
           $codes = implode(",", $code);
           $units = implode(",", $unit);
+
           $courseId = implode(",", $select);
+          $stat = implode(",",$sta);
           $semesters = $student['CurrentSemester'];
           $levels = $student['Level'];
           $matric = $student['matricNo'];
@@ -85,16 +89,12 @@
           }
           else{      
         $in = $conn->prepare("INSERT INTO registeredcourse (student, studentId, matricNo, courseTitle, courseCode, 
-         courseUnit, courseId, level, semester, department, courseRegId) VALUES (?, ?, ?,?, ?, ?,?,?,?,?,?) ");
-         $in -> bind_param("sssssssssss", $studentName, $studentId, $matric, $titles, $codes, $units, 
-         $courseId, $levels, $semesters, $department, $courseRegId);
+         courseUnit, courseId, level, semester, department, status, courseRegId) VALUES (?,?, ?, ?,?, ?, ?,?,?,?,?,?) ");
+         $in -> bind_param("ssssssssssss", $studentName, $studentId, $matric, $titles, $codes, $units, 
+         $courseId, $levels, $semesters, $department, $stat, $courseRegId);
          $in -> execute();
           }
-      }
-        
-        
-      // }
-       
+      }       
     }
   }
   
@@ -172,6 +172,7 @@
                       <?php
                       $id = 0;
                       $Registered =[];
+                      $status =[];
                       
                      
                 //  echo $exists . $semesters.$department.$levels.$studentId;
@@ -184,13 +185,27 @@
                        while($cour = mysqli_fetch_array($reg)){
                           $regcourse = $cour['courseId'];
                           $Registered = explode(",", $regcourse);
+                          $statu = $cour['status'];
+                          if(!empty($statu)){
+                          $status = explode(',', $statu);
+                          }else {
+                            $status =[];
+                          }
+
                           $s++;
                        }
-                      
-
+                       $i = 0;
                        while($course = mysqli_fetch_array($new)){
                          $CourseId = $course['CourseId'];
-                        //  echo $CourseId;
+                         $compute = 1;
+                         $compare ="";
+                         if(!empty($status[$i])){
+                           $compare = $status[$i];
+                         }else {
+                           $compare = 0;
+                         }
+                        // echo "<br> $status[$i]<br>";
+                        
                       ?>
                     <tr>
                       <td><?php echo $id+1?></td>
@@ -200,16 +215,19 @@
                       <td><input type="checkbox" name="course[]" id="course" value="<?php
                         echo $CourseId;
                       ?>" <?php
-                      if(in_array ($CourseId, $Registered)){
-                        echo "checked";
-                      }else{
-                        echo "";
-                      }
+                      if(in_array ($CourseId, $Registered) && ($compute == $compare)){
+                          echo "checked disabled";
+                        }elseif(in_array($CourseId, $Registered) && ($compute != $compare)){
+                          echo "checked";
+                        }else {
+                          echo "";
+                        }
                       ?>></td>
                       
                     </tr>
                     <?php
                         $id++;
+                        $i++;
                       }
                     }else{
                       $Q = "SELECT* FROM courses WHERE CourseLevel ='$level' AND CourseCategory ='$dept'";

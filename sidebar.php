@@ -43,7 +43,7 @@ session_start();
               <ul class="nav nav-treeview">
                 <?php if(!isset($_SESSION['studentLogin'])){?>
                 <li class="nav-item">
-                  <a href="#studentlogin" class="nav-link active" data-toggle="modal">
+                  <a href="#studentlogin" class="nav-link" data-toggle="modal">
                     <i class="fa fa-graduation-cap nav-icon"></i>
                     <p>Student Login</p>
                   </a>
