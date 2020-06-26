@@ -85,6 +85,7 @@
             $Q = "UPDATE registeredcourse SET courseTitle = '$titles', courseCode = '$codes', courseUnit = '$units', courseId ='$courseId'
                 WHERE studentId = '$studentId' AND level ='$level' AND semester ='$semester' ";
                $insert = mysqli_query($conn, $Q);
+            echo $codes;
                
           }
           else{      
@@ -194,6 +195,9 @@
 
                           $s++;
                        }
+                       $totalcourse = count($Registered);
+                       $totalmark = [];
+                      //  echo "$totalcourse <br> $totalresultupload";
                        $i = 0;
                        while($course = mysqli_fetch_array($new)){
                          $CourseId = $course['CourseId'];
@@ -201,6 +205,7 @@
                          $compare ="";
                          if(!empty($status[$i])){
                            $compare = $status[$i];
+                           array_push($totalmark, $compare);
                          }else {
                            $compare = 0;
                          }
@@ -212,17 +217,19 @@
                       <td><?php echo $course['CourseTitle'] ?></td>
                       <td><?php echo $course['CourseCode'] ?></td>
                       <td><?php echo $course['CourseUnit'] ?></td>
-                      <td><input type="checkbox" name="course[]" id="course" value="<?php
-                        echo $CourseId;
-                      ?>" <?php
+                      <td><?php
                       if(in_array ($CourseId, $Registered) && ($compute == $compare)){
-                          echo "checked disabled";
+                          echo '<input type="checkbox" name="course[]" id="course" disabled ="disabled" checked ="check" value="'. $CourseId .'">
+                          <input type="hidden" type="text" value="'. $CourseId .'" name="course[]">
+                          ' ;
                         }elseif(in_array($CourseId, $Registered) && ($compute != $compare)){
-                          echo "checked";
-                        }else {
-                          echo "";
+                          echo '<input type="checkbox" name="course[]" id="course" checked ="check" value="'.$CourseId.'">
+                          
+                          ' ;
+                          }else {
+                          echo '<input type="checkbox" name="course[]" id="course" value="'.$CourseId.'">';
                         }
-                      ?>></td>
+                      ?></td>
                       
                     </tr>
                     <?php
@@ -257,7 +264,12 @@
                    
                   
                 </table>
-                 <button type="submit" class="btn btn-primary mb-2 float-right" id="registercourse" name="registerCourse" >Add Course</button>
+                 <button type="submit" class="btn btn-primary mb-2 float-right" id="registercourse" name="registerCourse" <?php 
+                $totalresultupload = count($totalmark);
+                 if($totalresultupload == $totalcourse){
+                   echo "disabled";
+                 }
+                 ?> >Add Course</button>
                 
                 </form>
                 <?php
