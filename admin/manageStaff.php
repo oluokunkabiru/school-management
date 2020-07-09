@@ -148,30 +148,33 @@
                 </thead>
                 <tbody>
                   <?php
-                  $std =mysqli_query($conn, "SELECT* FROM staff");
+                  $std =mysqli_query($conn, "SELECT staff.name AS name, staff.email AS email, staff.Phone_Number as phone,
+                   staff.gender AS gender, staff.profilePicture AS image, courses.CourseTitle AS courses, staff.StaffId AS staffid,
+                   department.name AS dept FROM staff INNER JOIN courses ON staff.CourseTaken = courses.CourseId 
+                   INNER JOIN department ON staff.category = department.DepartmentId ");
                   $id =1;
                   while($staff = mysqli_fetch_array($std)){
 
                     $staf = (explode(",",$staff['name']));
                     $name =strtoupper($staf[0]." ".$staf[1]." ".$staf[2]);
 
-                    $staffId = $staff['StaffId'];
+                    $staffId = $staff['staffid'];
                 ?>
               <tr>
               <td><?php echo $id ?></td>
               <td><?php echo $name ?></td>
               <td><?php echo htmlentities($staff['email'] )?></td>
-              <td><?php echo htmlentities($staff['Phone_Number'] )?></td>
+              <td><?php echo htmlentities($staff['phone'] )?></td>
               <td> <?php
-                if(!empty($staff['CourseTaken'])){
-                echo $staff['CourseTaken'];
+                if(!empty($staff['courses'])){
+                echo $staff['courses'];
                  }else{
                  echo "";
                  }
                 ?></td>
                 <td> <?php
-                if(!empty($staff['category'])){
-                echo $staff['category'];
+                if(!empty($staff['dept'])){
+                echo $staff['dept'];
                  }else{
                  echo "";
                  }
@@ -186,8 +189,8 @@
                 <td>
                 <img class="profile-user-img img-fluid img-circle"
                      src= "../staff/<?php
-                      if(!empty($staff['profilePicture'])){
-                          echo htmlentities($staff['profilePicture']);
+                      if(!empty($staff['image'])){
+                          echo htmlentities($staff['image']);
                       }else{
                           echo "<span style ='color:red'>Not Yet Set</span>";
                       }
@@ -278,4 +281,41 @@
       "autoWidth": false,
     });
   });
+</script>
+
+
+<script>
+
+
+function facult(str) {
+    if (str.length == 0) {
+        document.getElementById("dept").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("dept").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "facultyDetails.php?staffFaculty=" + str, true);
+        xmlhttp.send();
+    }
+}
+
+function deptmt(str) {
+    if (str.length == 0) {
+        document.getElementById("coursetaken").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("coursetaken").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "facultyDetails.php?staffDept=" + str, true);
+        xmlhttp.send();
+    }
+}
 </script>

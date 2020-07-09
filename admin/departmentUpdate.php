@@ -1,9 +1,7 @@
 <?php
      session_start();
      if(isset($_SESSION['adminLogin'])){
-    include('header.php');
     include("../includes/connection.php");
-    include('create.php');
 
 
     $user =$_SESSION['adminLogin'];
@@ -19,6 +17,7 @@
         $data = htmlspecialchars($data);
         return $data;
       }
+      
 
     $error =[];
     // echo "file is". $_POST['profile_picture'];
@@ -45,10 +44,10 @@
             }else{
                     $hod = $department['hod'];
                 }
-            if(! empty($_POST['faculty'])){
+            if(!empty($_POST['faculty'])){
                 $facultys = testinput($_POST['faculty']);
             }else{
-                    $facultys = $department['DepartmentCategory'];
+                    $facultys = $department['FacultyCategory'];
                 }
             
             
@@ -133,11 +132,13 @@
     <title>Admin:: edit <?php echo $department['name'] ?> Details</title>
     <link rel="stylesheet" href=>
 </head>
-<?php
+
+<body>
+    <?php
+    include('header.php');
+
     include('sidebar.php');
     ?>
-<body>
-    
 <div class="content-wrapper">
  <div class="container-fluid">
  <section class="content">
@@ -228,7 +229,7 @@
     </section>
         <div class="row">
           <div class="col-md-5">
-
+            
             <!-- Profile Image -->
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
@@ -236,7 +237,7 @@
                   <img class="img-fluid card-img"
                        src="<?php
                         if(!empty($department['logo'])){
-                            echo htmlentities($department['logo']);
+                            echo $department['logo'];
                         }else{
                             echo "../image/login.png";
                         }
@@ -380,7 +381,7 @@
                                     while( $faculty = mysqli_fetch_array($fac)){
 
                                 ?>
-                                <option value="<?php echo htmlspecialchars_decode($faculty['name']);?>"><?php echo htmlspecialchars_decode($faculty['name']);?></option>
+                                <option value="<?php echo $faculty['facultyId'];?>"><?php echo htmlspecialchars_decode($faculty['name']);?></option>
                                     <?php
                                 }
                                 ?>        

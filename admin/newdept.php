@@ -20,20 +20,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             array_push($error,'Enter Department Name');
         }
         
-        if (!preg_match("/^[a-zA-Z ]*$/",$_POST['dept'])) {
+        if (!preg_match("/^[a-zA-Z ]+\s*/",$_POST['dept'])) {
             array_push($error, "Only letters and white space allowed");
         }
         if(empty($_POST['faculty'])){
             array_push($error,'Select Faculty Category');
         }
         
-        if (!preg_match("/^[a-zA-Z ]*$/",$_POST['faculty'])) {
+        if (!preg_match("/^[a-zA-Z0-9]*$/",$_POST['faculty'])) {
             array_push($error, "Only letters and white space allowed");
         }
         if(empty($_POST['hod'])){
             array_push($error,'Enter HOD Name');
         }
-        if (!preg_match("/^[a-zA-Z ]*$/",$_POST['hod'])) {
+        if (!preg_match("/^[a-zA-Z]+\s*/",$_POST['hod'])) {
             array_push($error, "Only letters and white space allowed");
         }
         

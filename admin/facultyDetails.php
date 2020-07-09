@@ -161,14 +161,16 @@ if(isset($_GET['staffFaculty'])){
   echo '<div class="form-group">
         <label for="lang"> Department</label>
          <select class="form-control" name="dept" onchange="deptmt(this.value)">';
-         if(!empty($staffs["category"])){
-            $ex=  $staffs["category"];
-             echo "<option selected value ='$ex'>$ex</option>";
-         };
+        //  if(!empty($staffs["category"])){
+        //     $ex=  $staffs["category"];
+        //     $fadcid = $staffs[''];
+        //      echo "<option selected value ='$ex'>$ex</option>";
+        //  };
         
   while($dept = mysqli_fetch_array($q)){
     $dep = $dept['name'];
-    echo '<option value="'. $dep.'">'.$dep.'</option>';
+    $depid = $dept['DepartmentId'];
+    echo '<option value="'. $depid.'">'.$dep.'</option>';
   }
 echo ' </select>
 </div>';
@@ -181,15 +183,13 @@ if(isset($_GET['staffDept'])){
   echo '<div class="form-group">
         <label for="lang">Course Taken</label>
          <select class="form-control" name="course">';
-         if(!empty($staffs["CourseTaken"])){
-            $ex=  $staffs["CourseTaken"];
-             echo "<option selected value ='$ex'>$ex</option>";
-         };
+        
         
   while($cour = mysqli_fetch_array($q)){
     $course = $cour['CourseTitle'];
     $courseC = $cour['CourseCode'];
-    echo '<option value="'. $course.'">'.$course." || ".$courseC.'</option>';
+    $courseid = $cour['CourseId'];
+    echo '<option value="'. $courseid.'">'.$course." || ".$courseC.'</option>';
 }
 echo '</select>
 </div>';

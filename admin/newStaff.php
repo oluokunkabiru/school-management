@@ -26,6 +26,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if(empty($_POST['fname'])){
             array_push($error,'Enter your Firstname');
         }
+        if(empty($_POST['faculty'])){
+            array_push($error,'Please Select Faculty');
+        }
+        if(empty($_POST['dept'])){
+            array_push($error,'Please Select Department');
+        }
+        if(empty($_POST['course'])){
+            array_push($error,'Please Select Department');
+        }
         if (!preg_match("/^[a-zA-Z ]*$/",$_POST['fname'])) {
             array_push($error, "Only letters and white space allowed");
         }
@@ -78,6 +87,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              $sname = testinput($_POST['sname']);
              $fname = testinput($_POST['fname']);
              $lname = testinput($_POST['lname']);
+             $faculty = testinput($_POST['faculty']);
+             $dept = testinput($_POST['dept']);
+             $course = testinput($_POST['course']);
              $staffs =[];
              
              array_push($staffs, $fname);
@@ -88,11 +100,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              $email = $gen;
              $name = implode(",", $staffs);
              $phone = testinput($_POST['phone']);
-             $password = testinput($_POST['password']);
+             $password =md5(testinput($_POST['password']));
              $staffId = $mess;
             //  inserting the data into database
-             $data = "INSERT INTO staff (id, name, email, Phone_Number, password,dob, StaffId) VALUES 
-             ('','$name','$email','$phone','$password','$dob', '$staffId')";
+             $data = "INSERT INTO staff (id, name, email, Phone_Number, password,dob, CourseTaken, category, faculty, StaffId) VALUES 
+             ('','$name','$email','$phone','$password','$dob','$course','$dept','$faculty', '$staffId')";
              $q = mysqli_query($conn, $data);
              if($q){
                  echo "<h2 class='text-success'>Register Successfully</h1>";

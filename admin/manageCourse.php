@@ -148,19 +148,22 @@
                 </thead>
                 <tbody>
                   <?php
-                  $std =mysqli_query($conn, "SELECT* FROM courses");
+                  $std =mysqli_query($conn, "SELECT courses.CourseCode AS code, courses.CourseUnit AS unit,
+                   courses.CourseTitle AS title, courses.CourseDesc AS descs, courses.CourseLevel AS level,
+                   courses.logo AS logo, courses.CourseId AS cid, department.name AS dept, courses.courseReg_date
+                    AS approval FROM courses INNER JOIN department ON courses.CourseCategory = department.DepartmentId");
                   $id =1;
                   while($course = mysqli_fetch_array($std)){
-                    $courseId = $course['CourseId'];
+                    $courseId = $course['cid'];
                 ?>
               <tr>
               <td><?php echo $id ?></td>
-              <td><?php echo htmlentities($course['CourseTitle'] )?></td>
-              <td><?php echo htmlentities($course['CourseCode'] )?></td>
-              <td><?php echo htmlentities($course['CourseUnit'] )?></td>
-              <td><?php echo htmlentities($course['CourseDesc'] )?></td>
-              <td><?php echo htmlentities($course['CourseCategory'] )?></td>
-              <td><?php echo htmlentities($course['CourseLevel'] )?></td>
+              <td><?php echo htmlentities($course['title'] )?></td>
+              <td><?php echo htmlentities($course['code'] )?></td>
+              <td><?php echo htmlentities($course['unit'] )?></td>
+              <td><?php echo htmlentities($course['descs'] )?></td>
+              <td><?php echo htmlentities($course['dept'] )?></td>
+              <td><?php echo htmlentities($course['level'] )?></td>
               <td>
                 <img class="profile-user-img img-fluid img-circle"
                      src= "logo/<?php
@@ -172,7 +175,7 @@
                      ?>"
                      alt="Course Logo">
                 </td>
-              <td><?php echo htmlentities($course['courseReg_date'] )?></td>
+              <td><?php echo htmlentities($course['approval'] )?></td>
               
                 <td>
                   <a href="courseUpdate.php?id=<?php echo $courseId;?>">Edit</a>|<a href="">Delete</a>
