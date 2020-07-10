@@ -161,20 +161,36 @@ if(isset($_GET['staffFaculty'])){
   echo '<div class="form-group">
         <label for="lang"> Department</label>
          <select class="form-control" name="dept" onchange="deptmt(this.value)">';
-        //  if(!empty($staffs["category"])){
-        //     $ex=  $staffs["category"];
-        //     $fadcid = $staffs[''];
-        //      echo "<option selected value ='$ex'>$ex</option>";
-        //  };
+       
         
   while($dept = mysqli_fetch_array($q)){
     $dep = $dept['name'];
     $depid = $dept['DepartmentId'];
-    echo '<option value="'. $depid.'">'.$dep.'</option>';
+    echo '<option value="'.$depid.'">'.$dep.'</option>';
   }
 echo ' </select>
 </div>';
 }
+
+
+// if(isset($_GET['studentFaculty'])){
+
+//   $facul = $_GET['studentFaculty'];
+//   $q = mysqli_query($conn, "SELECT* FROM department WHERE FacultyCategory = '$facul'");
+//   echo '<div class="form-group">
+//         <label for="lang"> Department</label>
+//          <select class="form-control" name="depts">';
+
+       
+        
+//   while($dept = mysqli_fetch_array($q)){
+//     $dep = $dept['name'];
+//     $depid = $dept['DepartmentId'];
+//     echo '<option value="kabir">'.$dep.'</option>';
+//   }
+// echo ' </select>
+// </div>';
+// }
 
 
 if(isset($_GET['staffDept'])){

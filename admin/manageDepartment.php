@@ -125,7 +125,7 @@
             <div class="card-header">
               <h1 class="card-title">Manage Department</h1>
             </div>
-            <a href="#newdepartment" class="nav-link" data-toggle="modal">
+            <a href="#newdepartment" class="btn btn-lg btn-info" data-toggle="modal">
                 <i class="nav-icon fa fa-user-plus"></i>
                   Add New Department
               </a>

@@ -40,9 +40,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!preg_match("/^[0-9]*$/",$_POST['phone'])) {
             array_push($error, "Only Numbers allowed");
         }
+        if(empty($_POST['faculty'])){
+            array_push($error,'Please Select Faculty');
+        }
+        if(empty($_POST['dept'])){
+            array_push($error,'Please Select Department');
+        }
          $existPhone = check("Phone_Number", $_POST['phone']);
-        
-        
         if($existPhone != 0){
             
             array_push($error, "Student with this Phone Number :".$_POST['phone']. " Already Exist, Will you like to  <a href='#studentlogin' data-toggle='modal' data-dismiss='modal'>Login</a>?");
@@ -82,19 +86,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              $sname = testinput($_POST['sname']);
              $fname = testinput($_POST['fname']);
              $lname = testinput($_POST['lname']);
+             $faculty = testinput($_POST['faculty']);
+             $dept = testinput($_POST['dept']);
              $gen = strtolower($sname[0].$fname[0].$lname[0].$fname."@student.oic.org");
              $email = $gen;
              $phone = testinput($_POST['phone']);
-             $password = testinput($_POST['password']);
+             $password = md5(testinput($_POST['password']));
              $studentId = $mess;
             //  inserting the data into database
-             $data = "INSERT INTO student (id, SurName, FirstName, LastName, email, Phone_Number, matricNo, password, StudentId) VALUES 
-             ('','$sname','$fname','$lname','$email','$phone', '$matric', '$password', '$studentId')";
+             $data = "INSERT INTO student (id, SurName, FirstName, LastName, email, Phone_Number, matricNo, password,Department, Faculty, StudentId) VALUES 
+             ('','$sname','$fname','$lname','$email','$phone', '$matric', '$password','$dept', '$faculty', '$studentId')";
              $q = mysqli_query($conn, $data);
              if($q){
                  echo "<h2 class='text-success'>Register Successfully</h1>";
              }else{
-                 echo "Fail to register";
+                 echo "Fail to register". mysqli_error($conn) ;
              }
 
          }

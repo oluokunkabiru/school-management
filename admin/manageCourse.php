@@ -125,7 +125,7 @@
             <div class="card-header">
               <h1 class="card-title">Manage Courses</h1>
             </div>
-            <a href="#newcourse" class="nav-link" data-toggle="modal">
+            <a href="#newcourse" class="btn btn-lg btn-info" data-toggle="modal">
                 <i class="nav-icon fa fa-user-plus"></i>
                   Add New Course
               </a>
