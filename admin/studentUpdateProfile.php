@@ -6,7 +6,9 @@
 
     $user =$_SESSION['adminLogin'];
     $id = $_GET['id'];
-    $stmt = "SELECT* FROM student WHERE StudentId = '$id'";
+    $stmt = "SELECT student.*, department.name AS dept,department.DepartmentId AS deptid, faculty.name AS faculty , faculty.facultyId AS facultyid FROM 
+    student INNER JOIN department ON student.Department = department.DepartmentId INNER JOIN faculty 
+    ON student.Faculty = faculty.facultyId WHERE StudentId = '$id'";
     $qe = mysqli_query($conn, $stmt);
     $student = mysqli_fetch_array($qe);
     $name = htmlentities(strtoupper($student['SurName']." ".$student['FirstName']." ".$student['LastName']));
@@ -101,12 +103,12 @@
               if(! empty($_POST['dept'])){
                 $dept= testinput($_POST['dept']);
             }else{
-                    $dept = $student['Department'];
+                    $dept = $student['deptid'];
                 }
             if(! empty($_POST['faculty'])){
                 $faculty= testinput($_POST['faculty']);
             }else{
-                    $faculty = $student['Faculty'];
+                    $faculty = $student['facultyid'];
                 }
                 
     
@@ -317,8 +319,8 @@
                         }
                        ?></b></li>
                           <li class="list-group-item">Department : <b><?php
-                        if(!empty($student['Department'])){
-                            echo htmlentities($student['Department']);
+                        if(!empty($student['dept'])){
+                            echo htmlentities($student['dept']);
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }
@@ -531,12 +533,12 @@
                                 
                                 
                               <option selected value="<?php 
-                                    if(!empty($student['CGPA'])){
-                                        echo $student['CGPA'];
+                                    if(!empty($student['CurrentSemester'])){
+                                        echo $student['CurrentSemester'];
                                     }
                                     ?>"><?php 
-                                    if(!empty($student['CGPA'])){
-                                        echo $student['CGPA'];
+                                    if(!empty($student['CurrentSemester'])){
+                                        echo $student['CurrentSemester'];
                                     }
                                     ?></option>
                                 <option value="Rain Semester">Rain Semester</option>
@@ -551,22 +553,24 @@
                                 
                                 
                               <option selected value="<?php 
-                                    if(!empty($student['Faculty'])){
-                                        echo $student['Faculty'];
+                                    if(!empty($student['facultyid'])){
+                                        echo $student['facultyid'];
                                     }
                                     ?>"><?php 
-                                    if(!empty($student['Faculty'])){
-                                        echo $student['Faculty'];
+                                    if(!empty($student['faculty'])){
+                                        echo $student['faculty'];
                                     }
                                     $q = mysqli_query($conn, "SELECT* FROM faculty");
                                     while($fac = mysqli_fetch_array($q)){
                                       $facut = $fac['name'];
+                                      $facultyid = $fac['facultyId'];
+
 
                                     
                                     ?>
                                   
                                 </option>
-                                <option value="<?php echo $facut ?>"><?php echo $facut ?></option>
+                                <option value="<?php echo $facultyid ?>"><?php echo $facut ?></option>
                                     <?php } ?>                                
                               </select>
                           </div>
@@ -579,12 +583,12 @@
                                 
                                 
                               <option selected value="<?php 
-                                    if(!empty($student['Department'])){
-                                        echo $student['Department'];
+                                    if(!empty($student['deptid'])){
+                                        echo $student['deptid'];
                                     }
                                     ?>"><?php 
-                                    if(!empty($student['Department'])){
-                                        echo $student['Department'];
+                                    if(!empty($student['dept'])){
+                                        echo $student['dept'];
                                     }
                                    ?>
                               </select>

@@ -4,12 +4,18 @@
     include('header.php');
     include("../includes/connection.php");
     $user =$_SESSION['staffLogin'];
-    $stmt = "SELECT* FROM staff WHERE email = '$user'|| Phone_Number = '$user'";
+    $stmt = "SELECT staff.*, faculty.name AS faculty,faculty.facultyId AS facultyid, courses.CourseTitle AS courses,
+    courses.CourseId AS courseid,department.DepartmentId AS deptid, staff.StaffId AS staffid, department.name AS dept FROM 
+    staff INNER JOIN courses ON staff.CourseTaken = courses.CourseId INNER JOIN department ON staff.category = department.DepartmentId 
+    INNER JOIN faculty ON faculty.facultyId = staff.faculty WHERE email = '$user'|| Phone_Number = '$user'";
     $qe = mysqli_query($conn, $stmt);
     $staff = mysqli_fetch_array($qe);
     $staf = explode(",", $staff['name']);
     $name =strtoupper($staf[0]." ".$staf[1]." ".$staf[2]);
-    $dept = $staff['category'];
+    $dept = $staff['deptid'];
+    $deptname = $staff['dept'];
+    $coursetaken = $staff['courses'];
+
 
 
     ?>
@@ -159,7 +165,7 @@
                   <li class="list-group-item">
                     Department: <b><?php
                          if(!empty($staff['category'])){
-                          echo htmlentities($staff['category']);
+                          echo $deptname;
                       }else{
                           echo "<span style ='color:red'>Not Yet Set</span>";
                       }
@@ -169,7 +175,7 @@
                   <li class="list-group-item">
                     Course Taken: <b><?php
                          if(!empty($staff['CourseTaken'])){
-                          echo htmlentities($staff['CourseTaken']);
+                          echo $coursetaken;
                       }else{
                           echo "<span style ='color:red'>Not Yet Set</span>";
                       }

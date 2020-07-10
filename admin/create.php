@@ -182,7 +182,8 @@
                               </select>
                           </div>
                           
-                          
+                          <input type="hidden" name="level" value="100">
+                          <input type="hidden" name="semester" value="Rain Semester">
                       <!-- </div> -->
                         <label for="pwd" class="mr-sm-2 mr-md-2">Choose Password:</label>
                         <input type="password" class="form-control mb-2 mr-sm-2" id="password" name="password">

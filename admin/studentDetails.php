@@ -5,7 +5,9 @@
     include("../includes/connection.php");
     $user =$_SESSION['adminLogin'];
     $id = $_GET['id'];
-    $stmt = "SELECT* FROM student WHERE StudentId = '$id'";
+    $stmt = "SELECT student.*, department.name AS dept, faculty.name AS faculty FROM 
+    student INNER JOIN department ON student.Department = department.DepartmentId INNER JOIN faculty 
+    ON student.Faculty = faculty.facultyId WHERE StudentId = '$id'";
     $qe = mysqli_query($conn, $stmt);
     $student = mysqli_fetch_array($qe);
     $name = htmlentities(strtoupper($student['SurName']." ".$student['FirstName']." ".$student['LastName']));
@@ -151,8 +153,8 @@
                   }
                  ?></b></li>
                     <li class="list-group-item">Department : <b><?php
-                  if(!empty($student['Department'])){
-                      echo htmlentities($student['Department']);
+                  if(!empty($student['dept'])){
+                      echo htmlentities($student['dept']);
                   }else{
                       echo "<span style ='color:red'>Not Yet Set</span>";
                   }
@@ -230,15 +232,15 @@
                         }
                        ?></b></li>
                           <li class="list-group-item">Department : <b><?php
-                        if(!empty($student['Department'])){
-                            echo htmlentities($student['Department']);
+                        if(!empty($student['dept'])){
+                            echo htmlentities($student['dept']);
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }
                        ?></b></li>
                           <li class="list-group-item">Faculty : <b><?php
-                        if(!empty($student['Faculty'])){
-                            echo htmlentities($student['Faculty']);
+                        if(!empty($student['faculty'])){
+                            echo htmlentities($student['faculty']);
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }

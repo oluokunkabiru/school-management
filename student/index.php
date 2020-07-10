@@ -4,7 +4,9 @@
     include('header.php');
     include("../includes/connection.php");
     $user =$_SESSION['studentLogin'];
-    $stmt = "SELECT* FROM student WHERE email = '$user'|| Phone_Number = '$user'|| matricNo = '$user'";
+    $stmt = "SELECT student.*, department.name AS dept,department.DepartmentId AS deptid, faculty.name AS faculty , faculty.facultyId AS facultyid FROM 
+    student INNER JOIN department ON student.Department = department.DepartmentId INNER JOIN faculty 
+    ON student.Faculty = faculty.facultyId  WHERE email = '$user'|| Phone_Number = '$user'|| matricNo = '$user'";
     $qe = mysqli_query($conn, $stmt);
     $student = mysqli_fetch_array($qe);
     $name = htmlentities(strtoupper( $student['SurName']." ".$student['FirstName']." ".$student['LastName']));
@@ -68,15 +70,15 @@
                         }
                        ?></b></p>
                 <p class="text-muted text-center">Department: <b><?php
-                        if(!empty($student['Department'])){
-                            echo htmlentities($student['Department']);
+                        if(!empty($student['dept'])){
+                            echo htmlentities($student['dept']);
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }
                        ?></b></p>
                 <p class="text-muted text-center">Faculty: <b><?php
-                        if(!empty($student['Faculty'])){
-                            echo htmlentities($student['Faculty']);
+                        if(!empty($student['faculty'])){
+                            echo htmlentities($student['faculty']);
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }

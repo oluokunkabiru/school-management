@@ -4,12 +4,16 @@
     include('header.php');
     include("../includes/connection.php");
     $user =$_SESSION['staffLogin'];
-    $stmt = "SELECT* FROM staff WHERE email = '$user'|| Phone_Number = '$user'";
+    $stmt = "SELECT staff. *, faculty.name AS faculty,faculty.facultyId AS facultyid, courses.CourseTitle AS courses,
+    courses.CourseId AS courseid,department.DepartmentId AS deptid, staff.StaffId AS staffid, department.name AS dept FROM 
+    staff INNER JOIN courses ON staff.CourseTaken = courses.CourseId INNER JOIN department ON staff.category = department.DepartmentId 
+    INNER JOIN faculty ON faculty.facultyId = staff.faculty WHERE email = '$user'|| Phone_Number = '$user'";
     $qe = mysqli_query($conn, $stmt);
     $staff = mysqli_fetch_array($qe);
     $staf = explode(",", $staff['name']);
     $name =strtoupper($staf[0]." ".$staf[1]." ".$staf[2]);
     $dept = $staff['category'];
+    $deptname = $staff['dept'];
     $staffid = $staff['StaffId'];
 
 
@@ -170,15 +174,17 @@
                 <tbody id="student">
                     <?php
                     $no = 1;
-                    $qu = mysqli_query($conn, "SELECT * FROM student WHERE Department='$dept'");
+                    $qu = mysqli_query($conn, "SELECT student.*, department.name AS dept, faculty.name AS faculty FROM 
+                    student INNER JOIN department ON student.Department = department.DepartmentId INNER JOIN faculty 
+                    ON student.Faculty = faculty.facultyId WHERE Department='$dept'");
                     while($student = mysqli_fetch_array($qu)){
                         $name = $student['SurName']." ".$student['FirstName']." ".$student['LastName'];
                         $matric = $student['matricNo'];
                         $levels = $student['Level'];
                         $studentId = $student['StudentId'];
-                        $faculty = $student['Faculty'];
+                        $faculty = $student['faculty'];
                         $semester = $student['CurrentSemester'];
-                        $department = $student['Department'];
+                        $department = $student['dept'];
                         $profile = $student['profilePicture'];
                     ?>
                     <tr>

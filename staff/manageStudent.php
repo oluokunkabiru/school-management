@@ -4,12 +4,16 @@
     include('header.php');
     include("../includes/connection.php");
     $user =$_SESSION['staffLogin'];
-    $stmt = "SELECT* FROM staff WHERE email = '$user'|| Phone_Number = '$user'";
+    $stmt = "SELECT staff. *, faculty.name AS faculty,faculty.facultyId AS facultyid, courses.CourseTitle AS courses,
+    courses.CourseId AS courseid,department.DepartmentId AS deptid, staff.StaffId AS staffid, department.name AS dept FROM 
+    staff INNER JOIN courses ON staff.CourseTaken = courses.CourseId INNER JOIN department ON staff.category = department.DepartmentId 
+    INNER JOIN faculty ON faculty.facultyId = staff.faculty WHERE email = '$user'|| Phone_Number = '$user'";
     $qe = mysqli_query($conn, $stmt);
     $staff = mysqli_fetch_array($qe);
     $staf = explode(",", $staff['name']);
     $name =strtoupper($staf[0]." ".$staf[1]." ".$staf[2]);
     $dept = $staff['category'];
+    $deptname = $staff['dept'];
     $staffid = $staff['StaffId'];
 
 
@@ -124,7 +128,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h1 class="card-title">Manage Students  for<b> <?php echo $dept ?></b></h1>
+              <h1 class="card-title">Manage Students  for<b> <?php echo $deptname ?></b></h1>
             </div>
            
             <!-- /.card-header -->
@@ -145,7 +149,9 @@
                 </thead>
                 <tbody>
                   <?php
-                  $std =mysqli_query($conn, "SELECT* FROM student WHERE Department = '$dept' ");
+                  $std =mysqli_query($conn, "SELECT student.*, department.name AS dept, faculty.name AS faculty FROM 
+                  student INNER JOIN department ON student.Department = department.DepartmentId INNER JOIN faculty 
+                  ON student.Faculty = faculty.facultyId WHERE Department = '$dept' ");
                   $id =1;
                   while($student = mysqli_fetch_array($std)){
                     $name = htmlentities(strtoupper($student['SurName']." ".$student['FirstName']." ".$student['LastName']));
@@ -165,7 +171,7 @@
                 ?></td>
                 <td> <?php
                 if(!empty($student['Department'])){
-                echo $student['Department'];
+                echo $student['dept'];
                  }else{
                  echo "";
                  }

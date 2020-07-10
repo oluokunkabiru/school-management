@@ -88,14 +88,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              $lname = testinput($_POST['lname']);
              $faculty = testinput($_POST['faculty']);
              $dept = testinput($_POST['dept']);
+             $level = testinput($_POST['level']);
+             $semester = testinput($_POST['semester']);
+             
              $gen = strtolower($sname[0].$fname[0].$lname[0].$fname."@student.oic.org");
              $email = $gen;
              $phone = testinput($_POST['phone']);
              $password = md5(testinput($_POST['password']));
              $studentId = $mess;
             //  inserting the data into database
-             $data = "INSERT INTO student (id, SurName, FirstName, LastName, email, Phone_Number, matricNo, password,Department, Faculty, StudentId) VALUES 
-             ('','$sname','$fname','$lname','$email','$phone', '$matric', '$password','$dept', '$faculty', '$studentId')";
+             $data = "INSERT INTO student (id, SurName, FirstName, LastName, email, Phone_Number, matricNo,CurrentSemester, password,Level, Department, Faculty, StudentId) VALUES 
+             ('','$sname','$fname','$lname','$email','$phone', '$matric','$semester', '$password','$level','$dept', '$faculty', '$studentId')";
              $q = mysqli_query($conn, $data);
              if($q){
                  echo "<h2 class='text-success'>Register Successfully</h1>";
