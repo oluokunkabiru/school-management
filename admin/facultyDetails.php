@@ -141,7 +141,7 @@ if(isset($_GET['levelss'])){
               
               
                 <td>
-                  <a href="viewStudentResult.php?semester='.$semester.'&id='.$studentId.'&level='.$levels.'">View Result</a>
+                  <a href="viewStudentResult.php?semester='.$semester.'&id='.$studentId.'&level='.$levels.'">View Result</a>|| <a href="allResult.php?student='.$studentId.'">View All Result</a>
                 </td>
               </tr>';
               

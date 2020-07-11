@@ -28,3 +28,6 @@
 
 <script src="../plugins/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="../dist/jspdf.min.js"></script>
+<script src="../dist/jspdf.plugin.autotable.min.js"></script>
+<script src="../plugins/dist/js/adminlte.min.js"></script>

@@ -57,7 +57,7 @@
                 
                   <td>
                     <a href="resultprocessing.php?id='.$studentId.'
-                    ">Upload Result</a><p></p><a href="viewStudentResult.php?id='.$studentId.'&semester='.$semester.'&level='.$levels.'
+                    ">Upload Result</a><p></p><a href="allresult.php?student='.$studentId.'&semester='.$semester.'&level='.$levels.'
                     ">Check Result</a><p></p><a href="studentDetails.php?id='.$studentId.'">View Details</a>
                   </td>
                 </tr>';

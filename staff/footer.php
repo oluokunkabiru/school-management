@@ -27,3 +27,6 @@
 <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 
 <script src="../plugins/dist/js/adminlte.min.js"></script>
+<script src="../dist/jspdf.min.js"></script>
+<script src="../dist/jspdf.plugin.autotable.min.js"></script>
+<script src="../plugins/dist/js/adminlte.min.js"></script>

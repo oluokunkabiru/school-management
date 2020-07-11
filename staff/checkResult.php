@@ -170,15 +170,17 @@
                 <tbody id="student">
                     <?php
                     $no = 1;
-                    $qu = mysqli_query($conn, "SELECT * FROM student WHERE Department='$dept'");
+                    $qu = mysqli_query($conn, "SELECT student.*, department.name AS dept, faculty.name AS faculty FROM 
+                    student INNER JOIN department ON student.Department = department.DepartmentId INNER JOIN faculty 
+                    ON student.Faculty = faculty.facultyId WHERE Department='$dept'");
                     while($student = mysqli_fetch_array($qu)){
                         $name = $student['SurName']." ".$student['FirstName']." ".$student['LastName'];
                         $matric = $student['matricNo'];
                         $levels = $student['Level'];
                         $studentId = $student['StudentId'];
-                        $faculty = $student['Faculty'];
+                        $faculty = $student['faculty'];
                         $semester = $student['CurrentSemester'];
-                        $department = $student['Department'];
+                        $department = $student['dept'];
                         $profile = $student['profilePicture'];
                     ?>
                     <tr>
@@ -197,7 +199,7 @@
                       }
                      ?>"
                      alt="User profile picture"></td>
-                    <td><a href="viewStudentResult.php?id=<?php echo $studentId?>&semester=<?php echo $semester?>&level=<?php echo $levels?>">View</a></td>
+                    <td><a href="allResult.php?student=<?php echo $studentId?>&semester=<?php echo $semester?>&level=<?php echo $levels?>">View</a></td>
                     </tr>
                   <?php
                   $no++;
