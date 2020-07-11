@@ -136,6 +136,7 @@ include("../includes/connection.php");
                    <td><span class ="btn btn-block btn-success text-light font-weight-bold">'.$totalpoints.'</span></td>
                    </tr>
                </tfoot>
+               
         </table>';
         if(!empty($title)){
           echo '
