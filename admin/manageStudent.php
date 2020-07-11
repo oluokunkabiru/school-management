@@ -126,12 +126,13 @@
             <div class="card-header">
               <h1 class="card-title">Manage Students</h1>
             </div>
-            <a href="#addnewstudent" class="nav-link" data-toggle="modal">
+            
+            <!-- /.card-header -->
+            <div class="card-body">
+              <a href="#addnewstudent" class="btn btn-lg btn-info" data-toggle="modal">
                 <i class="nav-icon fa fa-user-plus"></i>
                   Add New Student
               </a>
-            <!-- /.card-header -->
-            <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -149,7 +150,9 @@
                 </thead>
                 <tbody>
                   <?php
-                  $std =mysqli_query($conn, "SELECT* FROM student");
+                  $std =mysqli_query($conn, "SELECT student.*, department.name AS dept, faculty.name AS faculty FROM 
+                  student INNER JOIN department ON student.Department = department.DepartmentId INNER JOIN faculty 
+                  ON student.Faculty = faculty.facultyId");
                   $id =1;
                   while($student = mysqli_fetch_array($std)){
                     $name = htmlentities(strtoupper($student['SurName']." ".$student['FirstName']." ".$student['LastName']));
@@ -170,8 +173,8 @@
                  }
                 ?></td>
                 <td> <?php
-                if(!empty($student['Department'])){
-                echo $student['Department'];
+                if(!empty($student['dept'])){
+                echo $student['dept'];
                  }else{
                  echo "";
                  }
@@ -208,6 +211,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email </th>
+                    <th>Matric No </th>
                     <th>Phone No</th>
                     <th>Level</th>
                     <th>Dept</th>
@@ -278,4 +282,35 @@
       "autoWidth": false,
     });
   });
+  function facult(str) {
+    if (str.length == 0) {
+        document.getElementById("depts").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("depts").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "facultyDetails.php?staffFaculty=" + str, true);
+        xmlhttp.send();
+    }
+}
+
+function deptmt(str) {
+    if (str.length == 0) {
+        document.getElementById("coursetaken").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("coursetaken").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "facultyDetails.php?staffDept=" + str, true);
+        xmlhttp.send();
+    }
+}
 </script>

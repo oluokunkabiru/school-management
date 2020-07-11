@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          if(count($error)==0){
              session_start();
              $email = testinput($_POST['phone']);
-             $password = testinput($_POST['password']);
+             $password =md5(testinput($_POST['password']));
              $mydata = "SELECT *FROM student WHERE (email ='$email' OR Phone_Number = '$email' OR matricNo ='$email') AND password ='$password' ";
              $query = mysqli_query($conn, $mydata);
              $dat = mysqli_fetch_array($query);
@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Login Successfully";
              }else{
                  echo "<h2 class='text-danger'> Failed to Login, Invalid Email or Password</h1>";
+                //  echo "Previous $email". $dat['password']."<br> current  ". $password;
              }
 
 

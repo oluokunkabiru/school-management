@@ -48,6 +48,7 @@
                 $points =[];
                 $totalunitpoint = [];
                 $class = "";
+                $statu = [];
 
                 foreach ($_POST['scores'] as $score) {
                    if($score >= 70 && $score <=100 ){
@@ -74,6 +75,7 @@
                 array_push($scores, $score);
                 array_push($grade, $gradd);
                 array_push($points, $point);
+                array_push($statu, "1");
 
               
                 }
@@ -114,12 +116,13 @@
                     $score = implode(",",$scores);
                     $grades = implode(",", $grade);
                     $point = implode(",",$points);
+                    $status = implode(",",$statu);
                     $cgpa;
                     $class;
                     $totalunits =implode(",", $totalunitpoint);
                     echo "$score <br> $grades<br>$point";
                     $update = "UPDATE registeredcourse SET scores = '$score', grades = '$grades', points = '$point', 
-                    cgpa = '$cgpa', class = '$class', totalunitpoint = '$totalunits' WHERE studentId = '$id'AND level = '$level' AND semester = '$semester' ";
+                    cgpa = '$cgpa', class = '$class', status = '$status', totalunitpoint = '$totalunits' WHERE studentId = '$id'AND level = '$level' AND semester = '$semester' ";
                     $updat = mysqli_query($conn, $update);
                     // echo "<br> $profile_picture";
                     if($updat){

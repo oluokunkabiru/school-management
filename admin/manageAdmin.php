@@ -128,7 +128,7 @@
             <div class="card-header">
               <h1 class="card-title">Manage Admin</h1>
             </div>
-            <a href="#newadmin" class="nav-link" data-toggle="modal">
+            <a href="#newadmin" class="btn btn-lg btn-info" data-toggle="modal">
                 <i class="nav-icon fa fa-user-plus"></i>
                   Add New Admin
               </a>

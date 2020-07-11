@@ -1,7 +1,6 @@
 <?php
      session_start();
      if(isset($_SESSION['adminLogin'])){
-    include('header.php');
     include("../includes/connection.php");
 
     $user =$_SESSION['adminLogin'];
@@ -10,7 +9,6 @@
     $qe = mysqli_query($conn, $stmt);
     $courses = mysqli_fetch_array($qe);
     $name = htmlentities(strtoupper($courses['CourseTitle']));
-    include('create.php');
 
     function testinput($data) {
         $data = trim($data);
@@ -151,6 +149,8 @@
     <link rel="stylesheet" href=>
 </head>
 <?php
+    include('header.php');
+
     include('sidebar.php');
     ?>
 <body>
@@ -307,7 +307,7 @@
                           </ul>
                         
                       </div>
-                      <a href="#profiledetails" class="text-center btn btn-warning btn-lg" data-toggle="modal"> <span>Update Profile</span></a>
+                      <a href="#profiledetails" class="text-center btn btn-warning btn-lg" data-toggle="modal"> <span>Update Course</span></a>
                       
                    </div>
                     <!-- /.post -->
@@ -416,7 +416,7 @@
                }
         ?>">   <?php 
         if(!empty($courses['CourseLevel'])){
-         echo $courses['CourseLevel'];
+         echo $courses['CourseLevel']." Level";
          }else{
          echo "";
          }
@@ -430,7 +430,7 @@
          </div>
         <div class="form-group">
           <label for="comment">Course Description:</label>
-          <textarea class="form-control" rows="5" id="desc" name="desc"></textarea>
+          <textarea class="form-control" rows="5" id="desc" name="desc"><?php echo $courses['CourseDesc']; ?></textarea>
       </div>
 
         
@@ -441,7 +441,7 @@
                 $fac = mysqli_query($conn, "SELECT* FROM department");
                 while( $department = mysqli_fetch_array($fac)){
               ?>
-               <option value="<?php echo htmlspecialchars_decode($department['name']);?>"><?php echo htmlspecialchars_decode($department['name']);?></option>
+               <option value="<?php echo htmlspecialchars_decode($department['DepartmentId']);?>"><?php echo htmlspecialchars_decode($department['name']);?></option>
                 <?php
               }
               ?>        

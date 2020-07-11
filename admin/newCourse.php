@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             array_push($error,'Enter Course Title');
         }
         
-        if (!preg_match("/^[a-zA-Z ]*$/",$_POST['title'])) {
+        if (!preg_match("/^[a-zA-Z]+\s*/",$_POST['title'])) {
             array_push($error, "Only letters and white space allowed");
         }
         if(empty($_POST['code'])){
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             array_push($error,'Enter Course Description');
         }
         
-        if (!preg_match("/^[a-zA-Z ]*$/",$_POST['desc'])) {
+        if (!preg_match("/^[a-zA-Z ]+\s*/",$_POST['desc'])) {
             array_push($error, "Only letters and white space allowed");
         }
          $existPhone = check("CourseTitle", $_POST['title']);
@@ -64,10 +64,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              $lastId = $lastI['lastId'];
              $mess = md5($lastId+1);
 
-             $Title =testinput($_POST['title']); 
-             $code = testinput($_POST['code']);
+             $Title =testinput( ucwords($_POST['title'])); 
+             $code = testinput( strtoupper($_POST['code']));
              $unit = testinput($_POST['unit']);
-             $desc = testinput($_POST['desc']);
+             $desc = testinput( ucwords($_POST['desc']));
              $level = testinput($_POST['level']);
              $department = testinput($_POST['dept']); 
              $CourseId = $mess;

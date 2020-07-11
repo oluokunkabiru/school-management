@@ -13,8 +13,9 @@ echo '<div class="form-group">
          <select class="form-control" id="dept" name="dept"  onchange="department(this.value)">
          <option value=""></option>';
      while($faculty = mysqli_fetch_array($quer)){
-        $dept = $faculty['name'];    
-      echo '<option value="'. $dept.'">'.$dept.'</option>';
+        $dept = $faculty['name']; 
+        $deptid = $faculty['DepartmentId'];   
+      echo '<option value="'. $deptid.'">'.$dept.'</option>';
      }
      echo ' </select>
             </div>';
@@ -48,15 +49,17 @@ if(isset($_GET['level'])){
     $level =$_SESSION['level'];
     $id =1;
     echo "<tbody>";
-    $qu = mysqli_query($conn, "SELECT * FROM student WHERE Department='$department' AND Level = '$level' AND Faculty = '$facultys' ");
+    $qu = mysqli_query($conn, "SELECT student.*, department.name AS dept, faculty.name AS faculty FROM 
+    student INNER JOIN department ON student.Department = department.DepartmentId INNER JOIN faculty 
+    ON student.Faculty = faculty.facultyId WHERE Department='$department' AND Level = '$level' AND Faculty = '$facultys' ");
             while($student = mysqli_fetch_array($qu)){
                 $name = $student['SurName']." ".$student['FirstName']." ".$student['LastName'];
                 $matric = $student['matricNo'];
                 $levels = $student['Level'];
                 $studentId = $student['StudentId'];
-                $faculty = $student['Faculty'];
+                $faculty = $student['faculty'];
                 $semester = $student['CurrentSemester'];
-                $department = $student['Department'];
+                $department = $student['dept'];
                 $profile = $student['profilePicture'];    
          echo '     <tr>
                 <td> '. $id .'</td>
@@ -105,15 +108,17 @@ if(isset($_GET['levelss'])){
   $level =$_SESSION['levels'];
   $id =1;
   echo "<tbody>";
-  $qu = mysqli_query($conn, "SELECT * FROM student WHERE Department='$department' AND Level = '$level' AND Faculty = '$facultys' ");
+  $qu = mysqli_query($conn, "SELECT student.*, department.name AS dept, faculty.name AS faculty FROM 
+  student INNER JOIN department ON student.Department = department.DepartmentId INNER JOIN faculty 
+  ON student.Faculty = faculty.facultyId WHERE Department='$department' AND Level = '$level' AND Faculty = '$facultys' ");
           while($student = mysqli_fetch_array($qu)){
               $name = $student['SurName']." ".$student['FirstName']." ".$student['LastName'];
               $matric = $student['matricNo'];
               $levels = $student['Level'];
               $studentId = $student['StudentId'];
-              $faculty = $student['Faculty'];
+              $faculty = $student['faculty'];
               $semester = $student['CurrentSemester'];
-              $department = $student['Department'];
+              $department = $student['dept'];
               $profile = $student['profilePicture'];    
        echo '     <tr>
               <td> '. $id .'</td>
@@ -161,18 +166,17 @@ if(isset($_GET['staffFaculty'])){
   echo '<div class="form-group">
         <label for="lang"> Department</label>
          <select class="form-control" name="dept" onchange="deptmt(this.value)">';
-         if(!empty($staffs["category"])){
-            $ex=  $staffs["category"];
-             echo "<option selected value ='$ex'>$ex</option>";
-         };
+       
         
   while($dept = mysqli_fetch_array($q)){
     $dep = $dept['name'];
-    echo '<option value="'. $dep.'">'.$dep.'</option>';
+    $depid = $dept['DepartmentId'];
+    echo '<option value="'.$depid.'">'.$dep.'</option>';
   }
 echo ' </select>
 </div>';
 }
+
 
 
 if(isset($_GET['staffDept'])){
@@ -181,15 +185,13 @@ if(isset($_GET['staffDept'])){
   echo '<div class="form-group">
         <label for="lang">Course Taken</label>
          <select class="form-control" name="course">';
-         if(!empty($staffs["CourseTaken"])){
-            $ex=  $staffs["CourseTaken"];
-             echo "<option selected value ='$ex'>$ex</option>";
-         };
+        
         
   while($cour = mysqli_fetch_array($q)){
     $course = $cour['CourseTitle'];
     $courseC = $cour['CourseCode'];
-    echo '<option value="'. $course.'">'.$course." || ".$courseC.'</option>';
+    $courseid = $cour['CourseId'];
+    echo '<option value="'. $courseid.'">'.$course." || ".$courseC.'</option>';
 }
 echo '</select>
 </div>';

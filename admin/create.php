@@ -25,6 +25,72 @@
         <input type="number" class="form-control mb-2 mr-sm-2" id="phone" name="phone">
         <label for="email" class="mr-sm-2 mr-md-2">Date of Birth:</label>
         <input type="date" class="form-control mb-2 mr-sm-2" id="dob" name="dob">
+        <div class="form-group">
+                            <label for="lang">Faculty</label>
+                                <select class="form-control"  name="faculty"  onchange="facult(this.value)">
+                                  
+                                  
+                                <option selected value="<?php 
+                                      if(!empty($staffs['faculty'])){
+                                          echo $staffs['faculty'];
+                                      }
+                                      ?>"><?php 
+                                      if(!empty($staffs['faculty'])){
+                                          echo $staffs['faculty'];
+                                      }
+                                      $q = mysqli_query($conn, "SELECT* FROM faculty");
+                                      while($fac = mysqli_fetch_array($q)){
+                                        $fa = $fac['name'];
+                                        $faid = $fac['facultyId'];
+  
+                                      
+                                      ?>
+                                    
+                                  </option>
+                                  <option value="<?php echo $faid ?>"><?php echo $fa ?></option>
+                                      <?php } ?>                                
+                                </select>
+                            </div>    
+                      <!-- </div> -->
+                      <div class="form-group " id="dept">
+                          <label for="lang">Department</label>
+                              <select class="form-control" name="dept" onchange="deptmt(this.value)">
+                                
+                                
+                              <option selected value="<?php 
+                                    if(!empty($staffs['Department'])){
+                                        echo $staffs['Department'];
+                                    }
+                                    ?>"><?php 
+                                    if(!empty($staffs['category'])){
+                                        echo $staffs['category'];
+                                    }
+                                   
+                                    ?>
+                                  
+                                </option>
+                                <!-- <option id="dept"> -->
+                              </select>
+                          </div>
+                          
+                          <div class="form-group" id="coursetaken">
+                            <label for="lang">Course Taken</label>
+                              <select class="form-control" name="course">
+                                <option selected value="<?php 
+                                if(!empty($staffs['CourseTaken'])){
+                                    echo $staffs['CourseTaken'];
+                                }
+                                ?>"><?php 
+                                if(!empty($staffs['CourseTaken'])){
+                                    echo $staffs['CourseTaken'];
+                                }
+                      
+                                ?>
+                                  </option>
+                              </select>
+                            </div>
+                      <!-- </div> -->
+                  
         <label for="pwd" class="mr-sm-2 mr-md-2">Choose Password:</label>
         <input type="password" class="form-control mb-2 mr-sm-2" id="password" name="password">
         <label for="pwd" class="mr-sm-2 mr-md-2">Confirm Password:</label>
@@ -68,13 +134,63 @@
                         <input type="number" class="form-control mb-2 mr-sm-2" id="phone" name="phone">
                         <label for="email" class="mr-sm-2 mr-md-2">Date of Birth:</label>
                         <input type="date" class="form-control mb-2 mr-sm-2" id="dob" name="dob">
+                        <div class="form-group">
+                            <label for="lang">Faculty</label>
+                                <select class="form-control"  name="faculty"  onchange="facult(this.value)">
+                                  
+                                  
+                                <option selected value="<?php 
+                                      if(!empty($staffs['faculty'])){
+                                          echo $staffs['faculty'];
+                                      }
+                                      ?>"><?php 
+                                      if(!empty($staffs['faculty'])){
+                                          echo $staffs['faculty'];
+                                      }
+                                      $q = mysqli_query($conn, "SELECT* FROM faculty");
+                                      while($fac = mysqli_fetch_array($q)){
+                                        $fa = $fac['name'];
+                                        $faid = $fac['facultyId'];
+  
+                                      
+                                      ?>
+                                    
+                                  </option>
+                                  <option value="<?php echo $faid ?>"><?php echo $fa ?></option>
+                                      <?php } ?>                                
+                                </select>
+                            </div>    
+                      <!-- </div> -->
+                      <div class="form-group " id="depts">
+                          <label for="lang">Department</label>
+                              <select class="form-control" name="depts" onchange="deptmt(this.value)">
+                                
+                                
+                              <option selected value="<?php 
+                                    if(!empty($staffs['Department'])){
+                                        echo $staffs['Department'];
+                                    }
+                                    ?>"><?php 
+                                    if(!empty($staffs['category'])){
+                                        echo $staffs['category'];
+                                    }
+                                   
+                                    ?>
+                                  
+                                </option>
+                                <!-- <option id="dept"> -->
+                              </select>
+                          </div>
+                          
+                          <input type="hidden" name="level" value="100">
+                          <input type="hidden" name="semester" value="Rain Semester">
+                      <!-- </div> -->
                         <label for="pwd" class="mr-sm-2 mr-md-2">Choose Password:</label>
                         <input type="password" class="form-control mb-2 mr-sm-2" id="password" name="password">
                         <label for="pwd" class="mr-sm-2 mr-md-2">Confirm Password:</label>
                         <input type="password" class="form-control mb-2 mr-sm-2" id="repassword" name="repassword">
                         
                         <button type="submit" class="btn btn-primary mb-2 float-right" id="studentSignUp" >Sign Up</button>
-                       <p class="text-center">Already Have Account  <a href="#studentlogin"  data-dismiss="modal" data-toggle="modal">Login</a></p>
                     </form> 
                     </div>
                   </div>
@@ -192,9 +308,10 @@
               <?php
                 $fac = mysqli_query($conn, "SELECT* FROM faculty");
                 while( $faculty = mysqli_fetch_array($fac)){
+                  $facultyid = $faculty['facultyId']
 
               ?>
-               <option value="<?php echo htmlspecialchars_decode($faculty['name']);?>"><?php echo htmlspecialchars_decode($faculty['name']);?></option>
+               <option value="<?php echo $facultyid ?>"><?php echo htmlspecialchars_decode($faculty['name']);?></option>
                 <?php
               }
               ?>        
@@ -258,7 +375,7 @@
                 $fac = mysqli_query($conn, "SELECT* FROM department");
                 while( $department = mysqli_fetch_array($fac)){
               ?>
-               <option value="<?php echo htmlspecialchars_decode($department['name']);?>"><?php echo htmlspecialchars_decode($department['name']);?></option>
+               <option value="<?php echo htmlspecialchars_decode($department['DepartmentId']);?>"><?php echo htmlspecialchars_decode($department['name']);?></option>
                 <?php
               }
               ?>        

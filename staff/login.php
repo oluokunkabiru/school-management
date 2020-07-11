@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          if(count($error)==0){
              session_start();
              $email = testinput($_POST['phone']);
-             $password = testinput($_POST['password']);
+             $password =md5(testinput($_POST['password']));
              $mydata = "SELECT* FROM staff WHERE (email ='$email' OR Phone_Number = '$email') AND password ='$password' ";
              $query = mysqli_query($conn, $mydata);
              $dat = mysqli_fetch_array($query);

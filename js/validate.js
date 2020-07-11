@@ -330,7 +330,7 @@ $('#studentSignUp').click(function(event){
       event.preventDefault();
   $.ajax({
       type:'POST',
-      url: '../student/SignUp.php',
+      url: 'SignUp.php',
       data: $('#studentRegisterForm').serialize(),
       success: function (data) {
       var result=data;
@@ -437,20 +437,3 @@ $('#studentSignUp').click(function(event){
   })
 
 
-   $('#studentSignUp').click(function(event){
-      event.preventDefault();
-  $.ajax({
-      type:'POST',
-      url: 'student/SignUp.php',
-      data: $('#studentRegisterForm').serialize(),
-      success: function (data) {
-      var result=data;
-      $(".errorsignup").html(result);
-      if(result=="<h2 class='text-success'>Register Successfully</h1>"){
-        setInterval(function(){
-          location.reload();
-        }, 1000);        }
-      }
-  });
-
-  })

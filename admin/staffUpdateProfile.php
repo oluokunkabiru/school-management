@@ -6,7 +6,10 @@
 
     $user =$_SESSION['adminLogin'];
     $id = $_GET['id'];
-    $stmt = "SELECT* FROM staff WHERE StaffId = '$id'";
+    $stmt = "SELECT staff. *, faculty.name AS faculty,faculty.facultyId AS facultyid, courses.CourseTitle AS courses,
+    courses.CourseId AS courseid,department.DepartmentId AS deptid, staff.StaffId AS staffid, department.name AS dept FROM 
+    staff INNER JOIN courses ON staff.CourseTaken = courses.CourseId INNER JOIN department ON staff.category = department.DepartmentId 
+    INNER JOIN faculty ON faculty.facultyId = staff.faculty  WHERE StaffId = '$id'";
     $qe = mysqli_query($conn, $stmt);
     $staffs = mysqli_fetch_array($qe);
     $name = htmlentities(strtoupper($staffs['name']));
@@ -49,7 +52,7 @@
               // echo $phone;
   
               }else{
-                  $faculty = $staffs['faculty'];
+                  $faculty = $staffs['facultyid'];
               }
             if(! empty($_POST['email'])){
               $email = strtolower(testinput($_POST['email']));
@@ -333,16 +336,11 @@
                     </div>
                     <ul class="list-group list-group-unbordered mb-3">
                     <li class="list-group-item"><h3><b><?php echo strtoupper($staffname)?></b></h3></li>
-                    <li class="list-group-item">Matric Number : <b><?php
-                        if(!empty($student['matricNo'])){
-                            echo htmlentities($student['matricNo']);
-                        }else{
-                            echo "<span style ='color:red'>Not Yet Set</span>";
-                        }
-                       ?></b></li>
+                    
+                       </b></li>
                    <li class="list-group-item">Department : <b><?php
-                        if(!empty($staffs['category'])){
-                            echo htmlentities($staffs['category']);
+                        if(!empty($staffs['dept'])){
+                            echo htmlentities($staffs['dept']);
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }
@@ -381,8 +379,8 @@
                           <li class="list-group-item">Phone No : <b><?php echo ($staffs['Phone_Number'])?></b></li>
                           <li class="list-group-item">Email(school) : <b><?php echo ($staffs['email'])?></b></li>
                           <li class="list-group-item">Department : <b><?php
-                        if(!empty($staffs['category'])){
-                            echo htmlentities($staffs['category']);
+                        if(!empty($staffs['dept'])){
+                            echo htmlentities($staffs['dept']);
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }
@@ -403,8 +401,8 @@
                        ?></b></li>
 
                           <li class="list-group-item">Course Taken : <b><?php
-                        if(!empty($staffs['CourseTaken'])){
-                            echo htmlentities($staffs['CourseTaken']);
+                        if(!empty($staffs['courses'])){
+                            echo htmlentities($staffs['courses']);
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }
@@ -531,8 +529,8 @@
                                   
                                   
                                 <option selected value="<?php 
-                                      if(!empty($staffs['faculty'])){
-                                          echo $staffs['faculty'];
+                                      if(!empty($staffs['facultyid'])){
+                                          echo $staffs['facultyid'];
                                       }
                                       ?>"><?php 
                                       if(!empty($staffs['faculty'])){
@@ -541,12 +539,13 @@
                                       $q = mysqli_query($conn, "SELECT* FROM faculty");
                                       while($fac = mysqli_fetch_array($q)){
                                         $fa = $fac['name'];
+                                        $faid = $fac['facultyId'];
   
                                       
                                       ?>
                                     
                                   </option>
-                                  <option value="<?php echo $fa ?>"><?php echo $fa ?></option>
+                                  <option value="<?php echo $faid ?>"><?php echo $fa ?></option>
                                       <?php } ?>                                
                                 </select>
                             </div>    
@@ -557,12 +556,12 @@
                                 
                                 
                               <option selected value="<?php 
-                                    if(!empty($staffs['Department'])){
-                                        echo $staffs['Department'];
+                                    if(!empty($staffs['deptid'])){
+                                        echo $staffs['deptid'];
                                     }
                                     ?>"><?php 
-                                    if(!empty($staffs['category'])){
-                                        echo $staffs['category'];
+                                    if(!empty($staffs['dept'])){
+                                        echo $staffs['dept'];
                                     }
                                    
                                     ?>
@@ -576,12 +575,12 @@
                             <label for="lang">Course Taken</label>
                               <select class="form-control" name="course">
                                 <option selected value="<?php 
-                                if(!empty($staffs['CourseTaken'])){
-                                    echo $staffs['CourseTaken'];
+                                if(!empty($staffs['courseid'])){
+                                    echo $staffs['courseid'];
                                 }
                                 ?>"><?php 
-                                if(!empty($staffs['CourseTaken'])){
-                                    echo $staffs['CourseTaken'];
+                                if(!empty($staffs['courses'])){
+                                    echo $staffs['courses'];
                                 }
                       
                                 ?>

@@ -285,7 +285,7 @@
                           </ul>
                         
                       </div>
-                      <a href="#profiledetails" class="text-center btn btn-warning btn-lg" data-toggle="modal"> <span>Update Profile</span></a>
+                      <a href="#profiledetails" class="text-center btn btn-warning btn-lg" data-toggle="modal"> <span>Update Faculty</span></a>
                       
                    </div>
                     <!-- /.post -->

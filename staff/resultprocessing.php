@@ -15,9 +15,12 @@
 
 
     $id = $_GET['id'];
-    $stmt = "SELECT* FROM student WHERE StudentId = '$id'";
+    $stmt = "SELECT student.*, department.name AS dept, faculty.name AS faculty FROM 
+    student INNER JOIN department ON student.Department = department.DepartmentId INNER JOIN faculty 
+    ON student.Faculty = faculty.facultyId WHERE StudentId = '$id'";
     $qe = mysqli_query($conn, $stmt);
     $student = mysqli_fetch_array($qe);
+    $deptname = $student['dept'];
     $studentname = htmlentities(strtoupper($student['SurName']." ".$student['FirstName']." ".$student['LastName']));
     $level = $student['Level'];
     $semester = $student['CurrentSemester'];
@@ -298,7 +301,7 @@
                        ?></b></li>
                           <li class="list-group-item">Department : <b><?php
                         if(!empty($student['Department'])){
-                            echo htmlentities($student['Department']);
+                            echo $deptname ;
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }

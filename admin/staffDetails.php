@@ -5,17 +5,28 @@
     include("../includes/connection.php");
     $user =$_SESSION['adminLogin'];
     $id = $_GET['id'];
-    $stmt = "SELECT* FROM staff WHERE StaffId = '$id'";
+    $stmt = "SELECT staff. *, faculty.name AS faculty,faculty.facultyId AS facultyid, courses.CourseTitle AS courses,
+    courses.CourseId AS courseid,department.DepartmentId AS deptid, staff.StaffId AS staffid, department.name AS dept FROM 
+    staff INNER JOIN courses ON staff.CourseTaken = courses.CourseId INNER JOIN department ON staff.category = department.DepartmentId 
+    INNER JOIN faculty ON faculty.facultyId = staff.faculty  WHERE StaffId = '$id'";
     $qe = mysqli_query($conn, $stmt);
     $staffs = mysqli_fetch_array($qe);
     $name = htmlentities(strtoupper($staffs['name']));
+   
+  $s  = explode(",",($name));
+           // echo $name;
+                        $surname =  $s[0];
+                        $firstname = $s[1];
+                        $lastname =  $s[2];
+                        // echo "ehhhhol";
+                        $staffname = $firstname." ".$lastname." ".$surname;  
     ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin:: View  <?php echo $name ?> Details</title>
+    <title>Admin:: View  <?php echo $staffname ?> Details</title>
     <link rel="stylesheet" href=>
 </head>
 <?php
@@ -134,7 +145,7 @@
                        
                 </div>
                 <ul class="list-group list-group-unbordered mb-3">
-                          <li class="list-group-item text-center"><h2><b><?php echo strtoupper($staffs['name'])?></b></h2></li>
+                          <li class="list-group-item text-center"><h2><b><?php echo $staffname ?></b></h2></li>
                       </ul>
 
                 
@@ -160,12 +171,12 @@
                     <div class="post">
                       <div class="user-block">
                           <ul class="list-group list-group-unbordered mb-3">
-                          <li class="list-group-item">Staff Name : <b><?php echo strtoupper($staffs['name'])?></b></li>
+                          <li class="list-group-item">Staff Name : <b><?php echo $staffname ?></b></li>
                           <li class="list-group-item">Phone No : <b><?php echo ($staffs['Phone_Number'])?></b></li>
                           <li class="list-group-item">Email(school) : <b><?php echo ($staffs['email'])?></b></li>
                           <li class="list-group-item">Department : <b><?php
-                        if(!empty($staffs['category'])){
-                            echo htmlentities($staffs['category']);
+                        if(!empty($staffs['dept'])){
+                            echo htmlentities($staffs['dept']);
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }
@@ -186,8 +197,8 @@
                        ?></b></li>
 
                           <li class="list-group-item">Course Taken : <b><?php
-                        if(!empty($staffs['CourseTaken'])){
-                            echo htmlentities($staffs['CourseTaken']);
+                        if(!empty($staffs['courses'])){
+                            echo htmlentities($staffs['courses']);
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }

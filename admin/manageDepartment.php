@@ -125,7 +125,7 @@
             <div class="card-header">
               <h1 class="card-title">Manage Department</h1>
             </div>
-            <a href="#newdepartment" class="nav-link" data-toggle="modal">
+            <a href="#newdepartment" class="btn btn-lg btn-info" data-toggle="modal">
                 <i class="nav-icon fa fa-user-plus"></i>
                   Add New Department
               </a>
@@ -145,21 +145,24 @@
                 </thead>
                 <tbody>
                   <?php
-                  $std =mysqli_query($conn, "SELECT* FROM department");
+                  $std =mysqli_query($conn, "SELECT department.name as dept, department.hod AS hod,
+                   department.logo AS logo, faculty.name AS faculty, department.DepartmentReg_date AS
+                    approval, department.DepartmentId AS id FROM department
+                   INNER JOIN faculty ON department.FacultyCategory = faculty.facultyId");
                   $id =1;
                   while($dept = mysqli_fetch_array($std)){
-                    $name = htmlentities(strtoupper($dept['name']));
-                    $deptId = $dept['DepartmentId'];
+                    $name = htmlentities(strtoupper($dept['dept']));
+                    $deptId = $dept['id'];
                 ?>
               <tr>
               <td><?php echo $id ?></td>
               <td><?php echo $name ?></td>
               <td><?php echo htmlentities($dept['hod'] )?></td>
-              <td><?php echo htmlentities($dept['FacultyCategory'] )?></td>
+              <td><?php echo htmlentities($dept['faculty'] )?></td>
               <td>
                 <img class="profile-user-img img-fluid img-circle"
-                     src= "logo/<?php
-                      if(!empty($faculty['logo'])){
+                     src= "<?php
+                      if(!empty($dept['logo'])){
                           echo htmlentities($dept['logo']);
                       }else{
                           echo "<span style ='color:red'>Not Yet Set</span>";
@@ -167,7 +170,7 @@
                      ?>"
                      alt="Department Logo">
                 </td>
-              <td><?php echo htmlentities($dept['DepartmentReg_date'] )?></td>
+              <td><?php echo htmlentities($dept['approval'] )?></td>
               
                 <td>
                   <a href="departmentUpdate.php?id=<?php echo $deptId;?>">Edit</a>|<a href="">Delete</a>
