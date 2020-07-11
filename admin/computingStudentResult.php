@@ -142,8 +142,8 @@
                                     ?>
                                     
                                     <option value="<?php 
-                                        if(!empty($faculty['name'])){
-                                            echo $faculty['name'];
+                                        if(!empty($faculty['facultyId'])){
+                                            echo $faculty['facultyId'];
                                         }
                                         ?>"><?php 
                                         if(!empty($faculty['name'])){

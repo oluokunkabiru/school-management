@@ -21,7 +21,9 @@
                </thead>
                <tbody>"';
             $search =ucwords( $_GET['student']);
-            $qu = mysqli_query($conn, "SELECT* FROM student WHERE  
+            $qu = mysqli_query($conn, "SELECT student.*, department.name AS dept, faculty.name AS faculty FROM 
+            student INNER JOIN department ON student.Department = department.DepartmentId INNER JOIN faculty 
+            ON student.Faculty = faculty.facultyId WHERE  
             SurName LIKE '%$search%' OR LastName LIKE '%$search%' OR FirstName LIKE '%$search%' OR matricNo LIKE '%$search%'  
             OR Faculty LIKE '%$search%' OR  Phone_Number LIKE '%$search%' OR email LIKE '%$search%' OR gender LIKE '%$search%'  ");
             while($student = mysqli_fetch_array($qu)){
@@ -29,9 +31,9 @@
                 $matric = $student['matricNo'];
                 $levels = $student['Level'];
                 $studentId = $student['StudentId'];
-                $faculty = $student['Faculty'];
+                $faculty = $student['faculty'];
                 $semester = $student['CurrentSemester'];
-                $department = $student['Department'];
+                $department = $student['dept'];
                 $profile = $student['profilePicture'];
                 echo '     <tr>
                 <td> '. $id .'</td>
@@ -92,9 +94,11 @@ if(isset($_GET['staff'])){
      </thead>
      <tbody>';
   $search =ucwords( $_GET['staff']);
-  $qu = mysqli_query($conn, "SELECT* FROM staff WHERE  
-  name LIKE '%$search%' OR category LIKE '%$search%' OR  Phone_Number LIKE '%$search%' OR email LIKE '%$search%' OR gender LIKE '%$search%' OR CourseTaken LIKE '%$search%'
-  OR state  LIKE '%$search%' OR city  LIKE '%$search%' OR address LIKE '%$search%' OR gender LIKE '%$search%'   ");
+  $qu = mysqli_query($conn, "SELECT staff.*, courses.CourseTitle AS courses,
+  department.name AS dept FROM staff INNER JOIN courses ON staff.CourseTaken = courses.CourseId 
+  INNER JOIN department ON staff.category = department.DepartmentId WHERE  
+ staff.name LIKE '%$search%' OR department.name LIKE '%$search%' OR  staff.Phone_Number LIKE '%$search%' OR staff.email LIKE '%$search%' OR staff.gender LIKE '%$search%' OR courses.CourseTitle LIKE '%$search%'
+  OR staff.state  LIKE '%$search%' OR staff.city  LIKE '%$search%' OR staff.address LIKE '%$search%'  ");
   while($staff = mysqli_fetch_array($qu)){
     $staf = (explode(",",$staff['name']));
     $name =strtoupper($staf[0]." ".$staf[1]." ".$staf[2]);
@@ -102,13 +106,13 @@ if(isset($_GET['staff'])){
     $phone =$staff['Phone_Number'];
     $course ="";
     if(!empty($staff['CourseTaken'])){
-      $course = $staff['CourseTaken'];
+      $course = $staff['courses'];
        }else{
        $course = "Not Yet Assign";
        }
       $dept ="";
       if(!empty($staff['category'])){
-        $dept = $staff['category'];
+        $dept = $staff['dept'];
          }else{
          $dept =  "Not Yet Assingn";
          }
@@ -176,13 +180,16 @@ if(isset($_GET['dept'])){
      </thead>
      <tbody>"';
   $search =ucwords( $_GET['dept']);
-  $qu = mysqli_query($conn, "SELECT* FROM department WHERE name LIKE '%$search%' OR hod  LIKE '%$search%' 
+  $qu = mysqli_query($conn, "SELECT courses.CourseCode AS code, courses.CourseUnit AS unit,
+  courses.CourseTitle AS title, courses.CourseDesc AS descs, courses.CourseLevel AS level,
+  courses.logo AS logo, courses.CourseId AS cid, department.name AS dept, courses.courseReg_date
+   AS approval FROM courses INNER JOIN department ON courses.CourseCategory = department.DepartmentId WHERE name LIKE '%$search%' OR hod  LIKE '%$search%' 
   OR FacultyCategory  LIKE '%$search%'  ");
   $id =1;
   while($dept = mysqli_fetch_array($qu)){
     $name = htmlentities(strtoupper($dept['name']));
     $deptId = $dept['DepartmentId'];
-    $faculty = $dept['FacultyCategory'];
+    $faculty = $dept['faculty'];
     $hod = $dept['hod'];
   
       echo '     <tr>
