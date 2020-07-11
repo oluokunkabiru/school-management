@@ -1,3 +1,12 @@
+<?php 
+  $a ="0";
+  if(!empty($a)){
+    echo "A is not empty = : $a";
+  }else {
+    echo "0 is empty";
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

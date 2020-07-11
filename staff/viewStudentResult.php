@@ -101,20 +101,24 @@
                       <td><?php echo $courseUnit[$i] ?></td>
                       <td><?php 
                       if(!empty($scoress[$i])){
-                       echo $scoress[$i];}else {
+                       echo $scoress[$i];
+                      }else {
                          echo "<span class = 'text-danger'>Result not yet upload</span>";
                        }
                         ?></td>
                       <td><?php if(!empty($gradess[$i])){
-                       echo $gradess[$i];}else {
+                       echo $gradess[$i];
+                      }else {
                          echo "<span class = 'text-danger'>Result not yet upload</span>";
                        } ?></td>
                       <td><?php if(!empty($point[$i])){
-                       echo $point[$i];}else {
+                       echo $point[$i];
+                      }else {
                          echo "<span class = 'text-danger'>Result not yet upload</span>";
                        } ?></td>
                       <td><?php if(!empty($totalpoint[$i])){
-                       echo $totalpoint[$i];}else {
+                       echo $totalpoint[$i];
+                      }else {
                          echo "<span class = 'text-danger'>Result not yet upload</span>";
                        } ?></td>
                      </tr>

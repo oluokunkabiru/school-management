@@ -110,11 +110,11 @@
                        echo $gradess[$i];}else {
                          echo "<span class = 'text-danger'>Result not yet upload</span>";
                        } ?></td>
-                      <td><?php if(!empty($point[$i])){
+                      <td><?php if(isset($point[$i])){
                        echo $point[$i];}else {
                          echo "<span class = 'text-danger'>Result not yet upload</span>";
                        } ?></td>
-                      <td><?php if(!empty($totalpoint[$i])){
+                      <td><?php if(isset($totalpoint[$i])){
                        echo $totalpoint[$i];}else {
                          echo "<span class = 'text-danger'>Result not yet upload</span>";
                        } ?></td>

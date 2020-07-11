@@ -38,11 +38,11 @@
           $sco = array_sum($scoress);
           // echo $to;
         
-    
+            $grade = [];
+            $scores = [];
         if(isset($_POST['uploadResult'])){
             if(isset($_POST['scores'])){
-                $grade = [];
-                $scores = [];
+               
                 $gradd ="";
                 $totalunit =$to;
                 $points =[];
@@ -168,9 +168,24 @@
    }else {
      $class = "PROBATION";
    }
-  //  update database with cgpa and class
-  $updat = "UPDATE student SET cgpa = '$cgpa', class = '$class' WHERE StudentId = '$studentId' ";
+
+   if(count($courseTitle)==count($scores) && $semester=="Harmattan Semester"){
+    if($level!=500){
+      $level+=100;
+    }else {
+      $level ="Graduate";
+    }
+    $semester = "Rain Semester";
+    //  update database with cgpa and class
+  $updat = "UPDATE student SET cgpa = '$cgpa', class = '$class', CurrentSemester ='$semester', Level= '$level' WHERE StudentId = '$studentId' ";
   $update = mysqli_query($conn, $updat);
+  }else {
+    $level = $student['Level'];
+    $semester = "Harmattan Semester";
+    $updat = "UPDATE student SET cgpa = '$cgpa', class = '$class', CurrentSemester ='$semester', Level= '$level' WHERE StudentId = '$studentId' ";
+    $update = mysqli_query($conn, $updat);
+  }
+ 
   
             }
         
