@@ -32,9 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              }else{
                  echo "<h2 class='text-danger'> Failed to Login, Invalid Email or Password</h1>";
              }
-
-
-
          }
     }
 ?>

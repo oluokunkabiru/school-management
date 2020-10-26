@@ -323,7 +323,12 @@
                        ?></b></li>
                           <li class="list-group-item">Department : <b><?php
                         if(!empty($student['Department'])){
-                            echo htmlentities($student['Department']);
+                            $studentdep = htmlentities($student['Department']);
+                            $deptm = mysqli_query($conn, "SELECT* FROM department WHERE DepartmentId = '$studentdep' ");
+                            $studentdept = mysqli_fetch_array($deptm);
+                            echo htmlentities(ucwords($studentdept['name']));
+
+
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }

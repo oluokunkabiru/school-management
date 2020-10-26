@@ -165,7 +165,8 @@ if(isset($_GET['staffFaculty'])){
   $q = mysqli_query($conn, "SELECT* FROM department WHERE FacultyCategory = '$facul'");
   echo '<div class="form-group">
         <label for="lang"> Department</label>
-         <select class="form-control" name="dept" onchange="deptmt(this.value)">';
+         <select class="form-control" name="dept" onchange="deptmt(this.value)">
+         <option></option>';
        
         
   while($dept = mysqli_fetch_array($q)){
@@ -184,7 +185,8 @@ if(isset($_GET['staffDept'])){
   $q = mysqli_query($conn, "SELECT* FROM courses WHERE CourseCategory = '$dept'");
   echo '<div class="form-group">
         <label for="lang">Course Taken</label>
-         <select class="form-control" name="course">';
+         <select class="form-control" name="course">
+         <option></option>';
         
         
   while($cour = mysqli_fetch_array($q)){
