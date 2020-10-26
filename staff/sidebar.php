@@ -10,7 +10,7 @@
 
 ?>
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar bg-muted  sidebar-dark-success elevation-4  bg-secondary"  style="position:fixed; top: 0px; left: 0px; z-index: 1;">
+<aside class="main-sidebar bg-muted  sidebar-dark-success elevation-4  bg-dark"  style="position:fixed; top: 0px; left: 0px; z-index: 1;">
     <!-- Brand Logo -->
     <a href="../index.php" class="brand-link">
       <img src="../image/village boy logo.jpg" alt="<?php $name ?>" class="brand-image img-circle elevation-3"
@@ -53,16 +53,22 @@
             
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-lock"></i>
+                <i class="nav-icon fa fa-graduation-cap"></i>
                 <p>
-                  Student Result
+                  Students
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
+              <li class="nav-item">
+              <a href="manageStudent.php" class="nav-link">
+                <i class="fa fa-users"></i>
+                <p>Managed Student</p>
+              </a>
+            </li>
                 <li class="nav-item">
                   <a href="computeStudentsResult.php" class="nav-link">
-                    <i class="fa fa-graduation-cap nav-icon"></i>
+                    <i class="fa fa-calculator"></i>
                     <p>Compute Result</p>
                   </a>
                 </li>
@@ -87,38 +93,12 @@
           <a href="#" class="nav-link">
             <i class="nav-icon fa fa-registered"></i>
             <p>
-              Students 
+              Department
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="manageStudent.php" class="nav-link">
-                <i class="fas fa-graduation-cap nav-icon"></i>
-                <p>Student Details</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Course Registered</p>
-              </a>
-            </li>
-            
-          </ul>
-        </li>
-
-        <!-- supervisor -->
-        <li class="nav-item has-treeview">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fa fa-registered"></i>
-            <p>
-              Department info
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
+          <li class="nav-item">
               <a href="manageCourse.php" class="nav-link">
                 <i class="fas fa-graduation-cap nav-icon"></i>
                 <p>View All Courses</p>
@@ -133,6 +113,8 @@
             
           </ul>
         </li>
+
+        
         
            <!-- Cateegories  -->
          

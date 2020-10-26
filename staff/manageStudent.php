@@ -128,7 +128,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h1 class="card-title">Manage Students  for<b> <?php echo $deptname ?></b></h1>
+              <h1 class="card-title">Manage Students  for<b> <?php echo ucwords($deptname) ?></b></h1>
             </div>
            
             <!-- /.card-header -->

@@ -4,13 +4,17 @@
     include('header.php');
     include("../includes/connection.php");
     $user =$_SESSION['staffLogin'];
-    $stmt = "SELECT* FROM staff WHERE email = '$user'|| Phone_Number = '$user'";
+    $stmt = "SELECT staff. *, faculty.name AS faculty,faculty.facultyId AS facultyid, courses.CourseTitle AS courses,
+    courses.CourseId AS courseid,department.DepartmentId AS deptid, staff.StaffId AS staffid, department.name AS dept FROM 
+    staff INNER JOIN courses ON staff.CourseTaken = courses.CourseId INNER JOIN department ON staff.category = department.DepartmentId 
+    INNER JOIN faculty ON faculty.facultyId = staff.faculty WHERE email = '$user'|| Phone_Number = '$user'";
     $qe = mysqli_query($conn, $stmt);
     $staff = mysqli_fetch_array($qe);
     $staf = explode(",", $staff['name']);
     $name =strtoupper($staf[0]." ".$staf[1]." ".$staf[2]);
     $dept = $staff['category'];
     $staffid = $staff['StaffId'];
+    $deptname = $staff['dept'];
 
 
     ?>
@@ -124,7 +128,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h1 class="card-title">Manage Courses  for <b> <?php echo $dept ?></b></h1>
+              <h1 class="card-title">Manage Courses  for <b> <?php echo ucwords($deptname) ?></b></h1>
             </div>
            
             <!-- /.card-header -->
@@ -146,18 +150,18 @@
                 </thead>
                 <tbody>
                   <?php
-                  $std =mysqli_query($conn, "SELECT* FROM courses WHERE CourseCategory = '$dept' ");
+                  $std =mysqli_query($conn, "SELECT courses.*, department.name AS dept FROM courses  INNER JOIN department ON courses.CourseCategory = department.DepartmentId WHERE CourseCategory = '$dept' ");
                   $id =1;
                   while($course = mysqli_fetch_array($std)){
                     $courseId = $course['CourseId'];
                 ?>
               <tr>
               <td><?php echo $id ?></td>
-              <td><?php echo htmlentities($course['CourseTitle'] )?></td>
+              <td><?php echo htmlentities(ucwords($course['CourseTitle']) )?></td>
               <td><?php echo htmlentities($course['CourseCode'] )?></td>
               <td><?php echo htmlentities($course['CourseUnit'] )?></td>
               <td><?php echo htmlentities($course['CourseDesc'] )?></td>
-              <td><?php echo htmlentities($course['CourseCategory'] )?></td>
+              <td><?php echo htmlentities(ucwords($course['dept']) )?></td>
               <td><?php echo htmlentities($course['CourseLevel'] )?></td>
               <td>
                 <img class="profile-user-img img-fluid img-circle"
