@@ -103,14 +103,12 @@
 
             </li> -->
               
-         
-
-        <!-- supervisor -->
-        <li class="nav-item has-treeview">
+              <!-- student nav -->
+            <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
-            <i class="nav-icon fa fa-registered"></i>
+            <i class="nav-icon fa fa-graduation-cap"></i>
             <p>
-              Manage Resources
+              Student
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
@@ -121,65 +119,117 @@
                     <p>Manage Student</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="manageStaff.php" class="nav-link">
-                    <i class="fas fa-chalkboard-teacher nav-icon"></i>
-                    <p>Manage Staff</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="manageAdmin.php" class="nav-link">
-                    <i class="fas fa-chalkboard-teacher nav-icon"></i>
-                    <p>Manage Admin</p>
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a href="manageCourse.php" class="nav-link">
-                    <i class="fas fa-chalkboard-teacher nav-icon"></i>
-                    <p>Manage Course</p>
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a href="manageDepartment.php" class="nav-link">
-                    <i class="fas fa-chalkboard-teacher nav-icon"></i>
-                    <p>Manage Department</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="manageFaculty.php" class="nav-link">
-                    <i class="fas fa-chalkboard-teacher nav-icon"></i>
-                    <p>Manage Faculty</p>
-                  </a>
-                </li>
-          </ul>
-        </li>
-        <li class="nav-item has-treeview">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fa fa-registered"></i>
-            <p>
-              Student Result
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
+          <li class="nav-item">
               <a href="computingStudentResult.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+                <i class="fa fa-calculator nav-icon"></i>
                 <p>Compute Student Result</p>
               </a>
             </li>
 
             <li class="nav-item">
               <a href="checkResult.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+                <i class="fa fa-address-book nav-icon"></i>
                 <p>Check Result</p>
               </a>
             </li>
           </ul>
-        </li>
-       
+          </li>
+<!-- staff -->
+          <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fa fa-users"></i>
+            <p>
+              Staffs
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+          <li class="nav-item">
+                  <a href="manageStaff.php" class="nav-link">
+                    <i class="fas fa-chalkboard-teacher nav-icon"></i>
+                    <p>Manage Staff</p>
+                  </a>
+            </li>
+          </ul>
+          </li>
+
+          <!-- admin -->
+          <!-- staff -->
+          <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fa fa-user-circle"></i>
+            <p>
+              Admin
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+          <li class="nav-item">
+                  <a href="manageAdmin.php" class="nav-link">
+                    <i class="fas fa-chalkboard-teacher nav-icon"></i>
+                    <p>Manage Admin</p>
+                  </a>
+                </li>
+          </ul>
+          </li>
+<!-- faculty -->
+          <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fa fa-school"></i>
+            <p>
+              Faculty
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+          <li class="nav-item">
+                  <a href="manageFaculty.php" class="nav-link">
+                    <i class="fas fa-chalkboard-teacher nav-icon"></i>
+                    <p>Manage Faculty</p>
+                  </a>
+                </li>
+          </ul>
+          </li>
+<!-- department -->
+          <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fa fa-building"></i>
+            <p>
+              Department
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+          <li class="nav-item">
+                  <a href="manageDepartment.php" class="nav-link">
+                    <i class="fas fa-chalkboard-teacher nav-icon"></i>
+                    <p>Manage Department</p>
+                  </a>
+                </li>
+          </ul>
+          </li>
+
+          <!-- courses -->
+          <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fa fa-book"></i>
+            <p>
+              Courses
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+          <li class="nav-item">
+                  <a href="manageCourse.php" class="nav-link">
+                    <i class="fas fa-chalkboard-teacher nav-icon"></i>
+                    <p>Manage Course</p>
+                  </a>
+                </li>
+          </ul>
+          </li>
+
+        <!-- supervisor -->
+        
 
         <li class="nav-item">
                 <a href="Logout.php" class="nav-link">

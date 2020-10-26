@@ -154,7 +154,7 @@
                  ?></b></li>
                     <li class="list-group-item">Department : <b><?php
                   if(!empty($student['dept'])){
-                      echo htmlentities($student['dept']);
+                      echo htmlentities(ucwords($student['dept']));
                   }else{
                       echo "<span style ='color:red'>Not Yet Set</span>";
                   }
@@ -233,14 +233,14 @@
                        ?></b></li>
                           <li class="list-group-item">Department : <b><?php
                         if(!empty($student['dept'])){
-                            echo htmlentities($student['dept']);
+                            echo htmlentities(ucwords($student['dept']));
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }
                        ?></b></li>
                           <li class="list-group-item">Faculty : <b><?php
                         if(!empty($student['faculty'])){
-                            echo htmlentities($student['faculty']);
+                            echo htmlentities(ucwords($student['faculty']));
                         }else{
                             echo "<span style ='color:red'>Not Yet Set</span>";
                         }
@@ -297,28 +297,28 @@
                           <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">Address : <b><?php
                                 if(!empty($student['Address'])){
-                                    echo htmlentities($student['Address']);
+                                    echo htmlentities(ucwords( $student['Address']));
                                 }else{
                                     echo "<span style ='color:red'>Not Yet Set</span>";
                                 }
                                ?></b></li>
                                   <li class="list-group-item">City : <b><?php
                                 if(!empty($student['city'])){
-                                    echo htmlentities($student['city']);
+                                    echo htmlentities(ucwords($student['city']));
                                 }else{
                                     echo "<span style ='color:red'>Not Yet Set</span>";
                                 }
                                ?></b></li>
                                   <li class="list-group-item">State: <b><?php
                                 if(!empty($student['state'])){
-                                    echo htmlentities($student['state']);
+                                    echo htmlentities(ucwords($student['state']));
                                 }else{
                                     echo "<span style ='color:red'>Not Yet Set</span>";
                                 }
                                ?></b></li>
                                   <li class="list-group-item">Next Of Kin : <b><?php
                                 if(!empty($student['NextOfKin'])){
-                                    echo htmlentities($student['NextOfKin']);
+                                    echo htmlentities(ucwords($student['NextOfKin']));
                                 }else{
                                     echo "<span style ='color:red'>Not Yet Set</span>";
                                 }
